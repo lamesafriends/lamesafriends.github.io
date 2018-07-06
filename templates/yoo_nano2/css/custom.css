@@ -1,0 +1,38 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/*
+ * Custom Style Sheet - Use this file to style your content
+ */
+.wk-gallery-wall.polaroid p.title {
+  max-width:  190px;
+  height: 56px;
+}
+ 
+.hitcounter_container div {
+  display: none;
+}
+.hitcounter_container div.hitcounter_rows {
+  display: block;
+}
+
+div.hitcounter_container {
+  background: none repeat scroll 0 0 transparent;
+  border: medium none !important;
+  padding: 0 !important;
+}
+ 
+
+.custom-logo {
+  display: inline-block;
+  width: 210px;
+  height: 90px;
+  background: url(../../../images/yootheme/logo.png) 50% 50% no-repeat;
+  background-size: contain;
+}
+
+/* Only Phones (Portrait) */
+@media (max-width: 479px) {
+
+  .custom-logo { height: 60px; }
+  
+}
