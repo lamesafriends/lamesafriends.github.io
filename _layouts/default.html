@@ -19,6 +19,7 @@
         // highlight current page in nav
         jQuery(function(){
             var path = window.location.pathname;
+            path = path.replace(/\/$/g, '');
             jQuery('#menu a').each(function(index, value){
                 if(jQuery(this).attr('href') == path) {
                     jQuery(this).addClass('active current');
@@ -67,6 +68,9 @@
         #menu .columns4 {
             width: 1000px;
         }
+        img {
+            max-width: 100%;
+        }
     </style>
     <link rel="stylesheet" href="/templates/yoo_nano2/styles/wide/css/modules.css" />
     <link rel="stylesheet" href="/templates/yoo_nano2/css/tools.css" />
@@ -91,7 +95,7 @@
 
 <body id="page" class="page sidebar-a-left sidebars-1  isblog " data-config='{"twitter":0,"plusone":0,"facebook":0}'>
 
-
+{% comment %}
     <div id="block-toolbar">
         <div class="wrapper">
 
@@ -110,7 +114,7 @@
 
         </div>
     </div>
-
+{% endcomment %}
 
     <div id="block-header">
         <div class="wrapper">
@@ -147,6 +151,11 @@
                                 <span>Purpose</span>
                             </a>
                         </li>
+                        <li class="level1">
+                                <a href="/news" class="level1">
+                                    <span>News</span>
+                                </a>
+                            </li>
                         <li class="level1 item116">
                             <a href="/board-members" class="level1">
                                 <span>Board Members</span>
