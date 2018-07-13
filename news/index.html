@@ -12,9 +12,8 @@ title: News
   <div class="content">
     {{ post.excerpt | truncate: 800 }} <a href="{{ post.url }}">(Read More)</a>
   </div>
+  <hr class="dotted">
 {% endfor %}
-
-<hr class="dotted">
 
 <!-- Pagination links -->
 <div class="pagination">
