@@ -16,9 +16,19 @@
     <script src="/media/widgetkit/js/jquery.js" type="text/javascript"></script>
     <script src="/cache/widgetkit/widgetkit-3cc339f9.js" type="text/javascript"></script>
     <script type="text/javascript">
-        // window.addEvent('load', function () {
-        //     new JCaption('img.caption');
-        // });
+        // highlight current page in nav
+        jQuery(function(){
+            var path = window.location.pathname;
+            jQuery('#menu a').each(function(index, value){
+                if(jQuery(this).attr('href') == path) {
+                    jQuery(this).addClass('active current');
+                    jQuery(this).parent('li').addClass('active current');
+                    if(jQuery(this).hasClass('level2')) {
+                        jQuery(this).parents('.level1').addClass('active current');
+                    }
+                }
+            });
+        })
     </script>
 
     <link rel="apple-touch-icon-precomposed" href="/templates/yoo_nano2/apple_touch_icon.png" />
@@ -117,7 +127,7 @@
 
 
                 <div id="headerbar" class="bfc-o">
-                    <div class="module   deepest">
+                    <div class="module deepest">
 
 
                         <h2 style="text-align: right;">Supporting La Mesa's
@@ -127,8 +137,8 @@
 
                 <nav id="menu">
                     <ul class="menu menu-dropdown">
-                        <li class="level1 item101 active current">
-                            <a href="/" class="level1 active current">
+                        <li class="level1 item101 ">
+                            <a href="/" class="level1">
                                 <span>Home</span>
                             </a>
                         </li>

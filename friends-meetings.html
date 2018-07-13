@@ -25,6 +25,43 @@ layout: default
 
             <div class="content clearfix">
 
+                {% for year in site.data.meetings reversed %}
+                <table class="zebra" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th width="25%">{{ year.year }}</th>
+                            <th align="center" width="37%">Minutes</th>
+                            <th align="center">Statement</th>
+                        </tr>
+                    </thead>
+                    <tbody> 
+                        {% for month in year.months reversed %}                       
+                        <tr>
+                            <td>{{ month.name }} {{ year.year }}</td>
+                            <td>
+                                {% if month.minutes %}
+                                <a href="{{ month.minutes }}" target="_blank" class="wf_file">
+                                    <span class="wf_file_text">{{ month.name }} {{ year.year }} Minutes</span>
+                                </a>
+                                {% else %}
+                                No {{ month.name }} Minutes
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if month.statement %}
+                                <a href="{{ month.statement }}" target="_blank" class="wf_file">
+                                    <span class="wf_file_text">{{ month.name }} {{ year.year }} Statement</span>
+                                </a>
+                                {% else %}
+                                No {{ month.name }} Statement
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <hr class="dotted">
+                {% endfor %}
 
                 <table class="zebra" style="width: 100%;">
                     <tbody>
@@ -104,14 +141,13 @@ layout: default
                         </tr>
                     </tbody>
                 </table>
+                <hr class="dotted">
                 <table class="zebra" style="width: 100%;">
                     <tbody>
                         <tr>
                             <th width="25%">2015</th>
                             <th align="center" width="37%">Minutes</th>
-                            <th align="center">
-                                <p>Statements</p>
-                            </th>
+                            <th align="center">Statements</th>
                         </tr>
                         <tr>
                             <td>Dec 2015</td>
@@ -213,7 +249,7 @@ layout: default
                         </tr>
                     </tbody>
                 </table>
-                <hr />
+                <hr class="dotted">
                 <table class="zebra" style="width: 100%;">
                     <tbody>
                         <tr>
@@ -327,7 +363,7 @@ layout: default
                         </tr>
                     </tbody>
                 </table>
-                <hr class="dotted" />
+                <hr class="dotted">
                 <table class="zebra" style="width: 100%;">
                     <tbody>
                         <tr>
@@ -445,7 +481,7 @@ layout: default
                         </tr>
                     </tbody>
                 </table>
-                <hr class="dotted" />
+                <hr class="dotted">
                 <table class="zebra" style="width: 100%;">
                     <tbody>
                         <tr>
