@@ -70,7 +70,7 @@ a[data-lightbox] img {
 	padding: 0;
 }
 
-.wk-slideshow .slides > li { position: absolute; }
+.wk-slideshow .slides > li { position: absolute; text-align: center; }
 .wk-slideshow .slides > li > a { display: block; }
 
 .wk-slideshow .nav li { cursor: pointer; }

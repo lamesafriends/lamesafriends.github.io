@@ -10,6 +10,11 @@ title: News
     <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>
   </p>
   <div class="content">
+    {% if post.featured-image %}
+    <div>
+        <img src="{{ post.featured-image}}" width="400" alt="">
+    </div>
+    {% endif %}
     {{ post.excerpt | truncate: 800 }} <a href="{{ post.url }}">(Read More)</a>
   </div>
   <hr class="dotted">
