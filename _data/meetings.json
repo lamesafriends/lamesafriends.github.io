@@ -85,12 +85,12 @@
             {
                 "name": "May",
                 "minutes": "/images/PDF_Files/2018/minutes-2018-05.pdf",
-                "statement": false
+                "statement": "/images/PDF_Files/2018/statement-2018-05.pdf"
             },
             {
                 "name": "June",
                 "minutes": false,
-                "statement": false
+                "statement": "/images/PDF_Files/2018/statement-2018-06.pdf"
             },
             {
                 "name": "July",
