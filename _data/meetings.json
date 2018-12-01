@@ -105,7 +105,7 @@
             {
                 "name": "September",
                 "minutes": "/images/PDF_Files/2018/minutes-2018-09.pdf",
-                "statement": false
+                "statement": "/images/PDF_Files/2018/statement-2018-09.pdf"
             }
         ]
     }
