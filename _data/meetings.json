@@ -106,6 +106,16 @@
                 "name": "September",
                 "minutes": "/images/PDF_Files/2018/minutes-2018-09.pdf",
                 "statement": "/images/PDF_Files/2018/statement-2018-09.pdf"
+            },
+            {
+                "name": "October",
+                "minutes": false,
+                "statement": "/images/PDF_Files/2018/statement-2018-10.pdf"
+            },
+            {
+                "name": "November",
+                "minutes": false,
+                "statement": "/images/PDF_Files/2018/statement-2018-11.pdf"
             }
         ]
     }
