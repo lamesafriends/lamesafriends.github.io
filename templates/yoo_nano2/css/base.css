@@ -13,8 +13,7 @@ body {
 
 a { color: #469bdb; }
 
-a:hover,
-em, code { color: #f16d1a; }
+a:hover, code { color: #f16d1a; }
 
 ins, mark { background-color: #ffa; }
 mark { color: #444; }
