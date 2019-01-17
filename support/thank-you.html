@@ -1,0 +1,39 @@
+---
+title: Thank you!
+layout: page
+---
+
+<style>
+    section.thankyou {
+        display: none;
+    }
+    section.thankyou.show {
+        display: block;
+    }
+</style>
+
+<img src="/images/PageDecoration/Bookstore.jpg" style="max-width: 400px;">
+
+<section class="thankyou" id="donations">
+    <p>Thank you for your thoughtful gift to the Friends of the La Mesa Library and to the community who rely on us to help provide many of the library’s services and programs. The La Mesa Library could not do what it does without the generous support of a caring community. </p>
+    <p>Thank you for your donation to the Friends of the La Mesa Library.  Would you like to share your passion for libraries and books as an advocate, volunteer or member?  Please see our <a href="/support/membership">MEMBERSHIP</a> page or send us a note via our <a href="/contact">CONTACT</a> page for more information on becoming an advocate or a volunteer.</p>
+</section>
+
+<section class="thankyou" id="membership">
+    <p>Thank you for joining the Friends of the La Mesa Library!  The La Mesa Library and its Friends could not do what they do without the generous support of caring champions like you. If you would like to expand your passion for libraries and books as a library advocate or Friends volunteer, please send us a note via our <a href="/contact">CONTACT</a> page.</p>
+</section>
+
+<p>Friends of the La Mesa Library, Inc. is an exempt organization as described in Section 501(c)(3) of the Internal Revenue Code; EIN 33-0638967.</p>
+
+<script>
+(function(){
+    var match = window.location.search.indexOf('membership');
+    if(match < 0) {
+        // donations
+        document.getElementById('donations').classList += ' show';
+    } else {
+        // membership
+        document.getElementById('membership').classList += ' show';
+    }
+})();
+</script>
