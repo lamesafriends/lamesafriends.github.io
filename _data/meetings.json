@@ -116,6 +116,11 @@
                 "name": "November",
                 "minutes": false,
                 "statement": "/images/PDF_Files/2018/statement-2018-11.pdf"
+            },
+            {
+                "name": "December",
+                "minutes": false,
+                "statement": "/images/PDF_Files/2018/statement-2018-12.pdf"
             }
         ]
     }
