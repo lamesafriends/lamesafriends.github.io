@@ -51,6 +51,11 @@
             max-width: 100%;
         }
         .wk-slideshow .slides > li { position: absolute; text-align: center; }
+        .fb-page blockquote {
+            padding: 0;
+            font-family: sans-serif;
+            font-style: normal;
+        }
     </style>
     <link rel="stylesheet" href="/templates/yoo_nano2/styles/wide/css/modules.css" />
     <link rel="stylesheet" href="/templates/yoo_nano2/css/tools.css" />
@@ -146,7 +151,7 @@
                                                     </li>
                                                     <li class="level2 item122">
                                                         <a href="/about/events" class="level2">
-                                                            <span>Ongoing Events</span>
+                                                            <span>Events</span>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -205,6 +210,7 @@
                 <!-- maininner end -->
 
                 <aside id="sidebar-a" class="grid-box">
+
                     <div class="grid-box width100 grid-v">
                         <div class="module mod-line  deepest">
 
@@ -220,7 +226,20 @@
                             </p>
                         </div>
                     </div>
+
                     <div class="grid-box width100 grid-v">
+                        <div class="module mod-line deepest">
+                            <h3>Be a friend and make a donation!</h3>
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                <input type="hidden" name="cmd" value="_s-xclick" />
+                                <input type="hidden" name="hosted_button_id" value="3J664GKYJ4ST4" />
+                                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                                <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+                            </form>                                    
+                        </div>
+                    </div>
+
+                    <!-- <div class="grid-box width100 grid-v">
                         <div class="module mod-line  deepest">
 
                             <h3 class="module-title">BookMarks</h3>
@@ -233,7 +252,14 @@
                             </div>
 
                         </div>
+                    </div> -->
+
+                    <div class="grid-box width100 grid-v">
+                        <div class="module mod-line deepest">
+                            <div class="fb-page" data-href="https://www.facebook.com/Friends-of-the-La-Mesa-Library-273336316694421" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/Friends-of-the-La-Mesa-Library-273336316694421" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Friends-of-the-La-Mesa-Library-273336316694421">Friends of the La Mesa Library on Facebook</a></blockquote></div>
+                        </div>
                     </div>
+
                     <div class="grid-box width100 grid-v">
                         <div class="module mod-line  deepest">
 
@@ -327,6 +353,15 @@
 
     gtag('config', 'UA-122300401-1');
     </script>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
 
 </body>
