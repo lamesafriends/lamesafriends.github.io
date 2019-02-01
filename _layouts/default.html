@@ -15,6 +15,20 @@
     <link rel="stylesheet" href="/templates/yoo_nano2/css/base.css" />
     <link rel="stylesheet" href="/templates/yoo_nano2/styles/wide/css/layout.css" />
     <link rel="stylesheet" href="/templates/yoo_nano2/styles/wide/css/menus.css" />
+    <link rel="stylesheet" href="/templates/yoo_nano2/styles/wide/css/modules.css" />
+    <link rel="stylesheet" href="/templates/yoo_nano2/css/tools.css" />
+    <link rel="stylesheet" href="/templates/yoo_nano2/styles/wide/css/system.css" />
+    <link rel="stylesheet" href="/templates/yoo_nano2/styles/wide/css/custom.css" />
+    <link rel="stylesheet" href="/templates/yoo_nano2/css/color2/salmon.css" />
+    <link rel="stylesheet" href="/templates/yoo_nano2/css/font1/kreon.css" />
+    <link rel="stylesheet" href="/templates/yoo_nano2/css/font2/yanonekaffeesatz.css" />
+    <link rel="stylesheet" href="/templates/yoo_nano2/styles/wide/css/font3/yanonekaffeesatz.css" />
+    <link rel="stylesheet" href="/templates/yoo_nano2/styles/wide/css/style.css" />
+    <link rel="stylesheet" href="/templates/yoo_nano2/styles/wide/css/responsive.css" />
+    <link rel="stylesheet" href="/templates/yoo_nano2/css/print.css" />
+    <link rel="stylesheet" href="/templates/yoo_nano2/fonts/kreon.css" />
+    <link rel="stylesheet" href="/templates/yoo_nano2/fonts/yanonekaffeesatz.css" />
+
     <style>
         .wrapper {
             max-width: 1060px;
@@ -56,20 +70,14 @@
             font-family: sans-serif;
             font-style: normal;
         }
+        #content, .content {
+            font-family: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+            font-size: calc(0.8em + 0.25vw);
+            font-weight: 300;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
     </style>
-    <link rel="stylesheet" href="/templates/yoo_nano2/styles/wide/css/modules.css" />
-    <link rel="stylesheet" href="/templates/yoo_nano2/css/tools.css" />
-    <link rel="stylesheet" href="/templates/yoo_nano2/styles/wide/css/system.css" />
-    <link rel="stylesheet" href="/templates/yoo_nano2/styles/wide/css/custom.css" />
-    <link rel="stylesheet" href="/templates/yoo_nano2/css/color2/salmon.css" />
-    <link rel="stylesheet" href="/templates/yoo_nano2/css/font1/kreon.css" />
-    <link rel="stylesheet" href="/templates/yoo_nano2/css/font2/yanonekaffeesatz.css" />
-    <link rel="stylesheet" href="/templates/yoo_nano2/styles/wide/css/font3/yanonekaffeesatz.css" />
-    <link rel="stylesheet" href="/templates/yoo_nano2/styles/wide/css/style.css" />
-    <link rel="stylesheet" href="/templates/yoo_nano2/styles/wide/css/responsive.css" />
-    <link rel="stylesheet" href="/templates/yoo_nano2/css/print.css" />
-    <link rel="stylesheet" href="/templates/yoo_nano2/fonts/kreon.css" />
-    <link rel="stylesheet" href="/templates/yoo_nano2/fonts/yanonekaffeesatz.css" />
 </head>
 
 <body id="page" class="page sidebar-a-left sidebars-1  isblog " data-config='{"twitter":0,"plusone":0,"facebook":0}'>
@@ -215,15 +223,15 @@
                         <div class="module mod-line  deepest">
 
                             <h3 class="module-title">
-                                <span class="color">Bookstore</span> Hours</h3>
-                            <p style="margin: 15px 0px; color: #444444; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 14px; line-height: 20px;">Mon-Fri 1:00 PM - 4:00 PM
-                                <br />Sat 1:00 PM - 5:00 PM
-                                <br />Sun 1:00 PM - 4:00 PM</p>
-                            <p style="margin: 15px 0px; color: #444444; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 14px; line-height: 20px;">
-                                <strong>
-                                    <span style="color: #444444; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 14px; line-height: 20px;">(619) 469-2151</span>
-                                </strong>
-                            </p>
+                                <span class="color">Bookstore</span> Hours
+                            </h3>
+                            <div class="content">
+                                <p>Mon-Fri 1:00 PM - 4:00 PM
+                                    <br />Sat 1:00 PM - 5:00 PM
+                                    <br />Sun 1:00 PM - 4:00 PM
+                                </p>
+                                <p><span>(619) 469-2151</span></p>
+                            </div>
                         </div>
                     </div>
 
@@ -265,7 +273,7 @@
 
                             <h3 class="module-title">
                                 <span class="color">Outside</span> Links</h3>
-                            <ul>
+                            <ul class="content">
                                 <li>
                                     <a href="http://www.sdcl.org/" target="_blank">San Diego County Library</a>
                                 </li>

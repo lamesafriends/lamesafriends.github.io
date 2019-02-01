@@ -1,9 +1,8 @@
 ---
 title: About the La Mesa Library
-layout: default
+layout: page
 ---
 
-<h1>About the La Mesa Library</h1>
 <p>The La Mesa Library is part of the San Diego County Library System. The City of La Mesa owns the land and the building
     that the library occupies, while the County of San Diego maintains the library. This cooperative relationship between
     the city and the county has served the community well over the years by drawing on resources from both public agencies.</p>
