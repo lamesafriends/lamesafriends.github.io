@@ -4,58 +4,53 @@
         "months": [
             {
                 "name": "January",
-                "minutes": "/images/pages/meetings/2017/Jan_2017_Minutes.pdf",
-                "statement": "/images/pages/meetings/2017/Jan_2017_stmnt.pdf"
+                "minutes": "/images/pages/meetings/2017/minutes-2017-01.pdf",
+                "statement": "/images/pages/meetings/2017/statement-2017-01.pdf"
             },
             {
                 "name": "February",
-                "minutes": false,
-                "statement": "/images/pages/meetings/2017/Feb_2017_stmnt.pdf"
+                "minutes": "/images/pages/meetings/2017/minutes-2017-02.pdf",
+                "statement": "/images/pages/meetings/2017/statement-2017-02.pdf"
             },
             {
                 "name": "March",
                 "minutes": false,
-                "statement": "/images/pages/meetings/2017/Mar_2017_Statement.pdf"
+                "statement": "/images/pages/meetings/2017/statement-2017-03.pdf"
             },
             {
                 "name": "April",
-                "minutes": "/images/pages/meetings/2017/April_2017_Minutes.pdf",
-                "statement": "/images/pages/meetings/2017/April_2017_Statement.pdf"
+                "minutes": "/images/pages/meetings/2017/minutes-2017-04.pdf",
+                "statement": "/images/pages/meetings/2017/statement-2017-04.pdf"
             },
             {
                 "name": "May",
                 "minutes": false,
-                "statement": "/images/pages/meetings/2017/May_2017_stmnt.pdf"
+                "statement": "/images/pages/meetings/2017/statement-2017-05.pdf"
             },
             {
                 "name": "June",
-                "minutes": false,
-                "statement": "/images/pages/meetings/2017/June_2017_stmnt.pdf"
+                "minutes": "/images/pages/meetings/2017/minutes-2017-06.pdf",
+                "statement": "/images/pages/meetings/2017/statement-2017-06.pdf"
             },
             {
                 "name": "July",
-                "minutes": "/images/pages/meetings/2017/July_2017_Minutes.pdf",
-                "statement": "/images/pages/meetings/2017/July_2017_Statement.pdf"
+                "minutes": "/images/pages/meetings/2017/minutes-2017-07.pdf",
+                "statement": "/images/pages/meetings/2017/statement-2017-07.pdf"
             },
             {
                 "name": "August",
-                "minutes": false,
-                "statement": "/images/pages/meetings/2017/Aug_2017_Statement.pdf"
-            },
-            {
-                "name": "September",
-                "minutes": "/images/pages/meetings/2017/Sep_2017_Minutes.pdf",
-                "statement": "/images/pages/meetings/2017/Sep_2017_Statement.pdf"
+                "minutes": "/images/pages/meetings/2017/minutes-2017-08.pdf",
+                "statement": false
             },
             {
                 "name": "October",
-                "minutes": false,
-                "statement": "/images/pages/meetings/2017/Oct_2017_statement.pdf"
+                "minutes": "/images/pages/meetings/2017/minutes-2017-10.pdf",
+                "statement": "/images/pages/meetings/2017/statement-2017-10.pdf"
             },
             {
                 "name": "December",
-                "minutes": "/images/pages/meetings/2017/Dec_2017_Minutes.pdf",
-                "statement": "/images/pages/meetings/2017/Dec_2017_statement.pdf"
+                "minutes": "/images/pages/meetings/2017/minutes-2017-01.pdf",
+                "statement": "/images/pages/meetings/2017/statement-2017-12.pdf"
             }
         ]
     },
