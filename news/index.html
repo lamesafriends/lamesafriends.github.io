@@ -15,7 +15,7 @@ title: News
         <img src="{{ post.featured-image}}" width="400" alt="">
     </div>
     {% endif %}
-    {{ post.excerpt | truncate: 800 }} <a href="{{ post.url }}">(Read More)</a>
+    {{ post.excerpt | truncate: 800 | strip_html }} <a href="{{ post.url }}">(Read More)</a>
   </div>
   <hr class="dotted">
 {% endfor %}
