@@ -114,7 +114,7 @@
             },
             {
                 "name": "December",
-                "minutes": false,
+                "minutes": "/images/pages/meetings/2018/minutes-2018-12.pdf",
                 "statement": "/images/pages/meetings/2018/statement-2018-12.pdf"
             }
         ]
