@@ -15,7 +15,7 @@ layout: default
             <div class="content clearfix">
 
                 <div style="border: 1px solid darkGray; padding: 10px; display: inline-block; max-width: 100%;">
-                    <img src="{{ site.data.board-members.imageRoot }}{{ site.data.board-members.groupPhoto }}" width="500"
+                    <img src="{{ site.data.board-members.imageRoot }}{{ site.data.board-members.groupPhoto }}?v={{ site.data.board-members.version }}" width="500"
                         style="max-width: 100%; display: block;" />
                 </div>
 
@@ -24,10 +24,10 @@ layout: default
                         <div class="wk-gallery wk-gallery-wall clearfix polaroid margin ">
                         {% for member in site.data.board-members.members %}
                         
-                            <a class="" href="{{ site.data.board-members.imageRoot }}{{ member.image}}" data-lightbox="group:14-580babbad8f15"
+                            <a class="" href="{{ site.data.board-members.imageRoot }}{{ member.image}}?v={{ site.data.board-members.version }}" data-lightbox="group:14-580babbad8f15"
                                 title="{{ member.name }}, {{ member.title }}">
                                 <div>
-                                    <img src="{{ site.data.board-members.imageRoot }}{{ member.image}}" width="200" height="245" alt="{{ member.name }}" />
+                                    <img src="{{ site.data.board-members.imageRoot }}{{ member.image}}?v={{ site.data.board-members.version }}" width="200" height="245" alt="{{ member.name }}" />
                                     <p class="title">{{ member.name }}, {{ member.title }}</p>
                                 </div>
                             </a>
