@@ -1,0 +1,56 @@
+{
+    "imageRoot": "/images/pages/board-members/",
+    "groupPhoto": "board-members-2019.jpg",
+    "members": [
+        {
+            "name": "John Schmitz",
+            "title": "President",
+            "image": "john-schmitz.jpg"
+        },
+        {
+            "name": "Robin Theilmann",
+            "title": "VP &amp; Bookstore Manager",
+            "image": "robin-theilmann.jpg"
+        },
+        {
+            "name": "Bob Thatcher",
+            "title": "Treasurer",
+            "image": "bob-thatcher.jpg"
+        },
+        {
+            "name": "Jon Lange",
+            "title": "Secretary",
+            "image": "jon-lange.jpg"
+        },
+        {
+            "name": "Joyce Purcell",
+            "title": "Membership Chair",
+            "image": "joyce-purcell.jpg"
+        },
+        {
+            "name": "Chelsie Harris",
+            "title": "Library Ex-Officio",
+            "image": "chelsie-harris.jpg"
+        },
+        {
+            "name": "Bob Duff",
+            "title": "Videographer",
+            "image": "bob-duff.jpg"
+        },
+        {
+            "name": "Justin Walker",
+            "title": "IT Coordinator",
+            "image": "justin-walker.jpg"
+        },
+        {
+            "name": "Bonnie Baranoff",
+            "title": "Publicity Chair",
+            "image": "bonnie-baranoff.jpg"
+        },
+        {
+            "name": "Misty Thompson",
+            "title": "City Ex-Officio",
+            "image": "misty-thompson.jpg"
+        }
+    ]
+}
