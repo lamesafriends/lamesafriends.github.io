@@ -141,6 +141,33 @@
                 "name": "April",
                 "minutes": "/images/pages/meetings/2019/minutes-2019-04.pdf",
                 "statement": "/images/pages/meetings/2019/statement-2019-04.pdf"
+            },
+            {
+                "name": "May",
+                "minutes": "/images/pages/meetings/2019/minutes-2019-05.pdf",
+                "statement": false
+            },
+            {
+                "name": "May",
+                "minutes": "/images/pages/meetings/2019/minutes-2019-05_budget.pdf",
+                "minutes_description": "Speical Budget Meeting",
+                "statement": false,
+                "statement_description": ""
+            },
+            {
+                "name": "June",
+                "minutes": false,
+                "statement": false
+            },
+            {
+                "name": "July",
+                "minutes": "/images/pages/meetings/2019/minutes-2019-07.pdf",
+                "statement": "/images/pages/meetings/2019/statement-2019-07.pdf"
+            },
+            {
+                "name": "August",
+                "minutes": false,
+                "statement": "/images/pages/meetings/2019/statement-2019-08.pdf"
             }
         ]
     }

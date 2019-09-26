@@ -28,19 +28,35 @@ layout: default
                             <td>
                                 {% if month.minutes %}
                                 <a href="{{ month.minutes }}" target="_blank" class="wf_file">
+                                    {% if month.minutes_description %}
+                                    <span class="wf_file_text">{{ month.minutes_description }}</span>
+                                    {% else %}
                                     <span class="wf_file_text">{{ month.name }} {{ year.year }} Minutes</span>
+                                    {% endif %}
                                 </a>
                                 {% else %}
-                                No {{ month.name }} Meeting
+                                    {% if month.minutes_description %}
+                                    {{ month.minutes_description }}
+                                    {% else %}
+                                    No {{ month.name }} Meeting
+                                    {% endif %}
                                 {% endif %}
                             </td>
                             <td>
                                 {% if month.statement %}
                                 <a href="{{ month.statement }}" target="_blank" class="wf_file">
+                                    {% if month.statement_description %}
+                                    <span class="wf_file_text">{{ month.statement_description }}</span>
+                                    {% else %}
                                     <span class="wf_file_text">{{ month.name }} {{ year.year }} Statement</span>
+                                    {% endif %}
                                 </a>
                                 {% else %}
-                                No {{ month.name }} Statement
+                                    {% if month.statement_description %}
+                                    {{ month.statement_description }}
+                                    {% else %}
+                                    No {{ month.name }} Statement
+                                    {% endif %}
                                 {% endif %}
                             </td>
                         </tr>
