@@ -33,10 +33,3 @@ Youth Services
 - Sensory Playtime with STEAM, an autism-friendly monthly event where kids can experiment with
 science and technology toys in a low-key environment.
 - Weekly programs for teens, plus the Service Learner program that teaches teens work skills.
-
-### Adult Services
-
-- Health and wellness classes, such as SilverSneakers yoga.
-- Monthly concerts that bring in local musicians.
-- Civic engagement and lectures with a new series via Oasis San Diego.
-- Library High School, which provides a free avenue for adults to gain a high school diploma.

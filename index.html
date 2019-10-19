@@ -212,14 +212,13 @@ layout: default
                                 <a href="/friends-meetings">Friends Meetings </a>page</p>
                             <p>For Rare and Collectible Books see our
                                 <a href="/books/vintage-books">Vintage Books </a>page</p>
-                            <p>And for Older Books visit our
-                                <a href="/books/older-books">Older Books </a>page</p>
                             <p>Want to see our Board members and President Message? Check out the
                                 <a href="/board-members">Board Member</a> Page</p>
                         </div>
                         <p>&nbsp;</p>
                         
-                        <!-- most recent Presidents Message -->
+                        {% comment %}
+                        <!-- most recent Presidents Message -->                        
                         <hr class="dotted">
                         {% for post in site.posts %}
                         {% if post.tags contains 'presidents-message' %}
@@ -228,10 +227,11 @@ layout: default
                         {{ post.content }}
                         {% break %}
                         {% endif %}
-                        {% endfor %}
-                        <hr class="dotted">
+                        {% endfor %}                        
                         <!-- /end president's message -->
+                        {% endcomment %}
 
+                        <hr class="dotted">
                         <h2 style="text-align: left;">Who are the Friends of the La Mesa Library?</h2>
                         <p style="text-align: left;" align="left">The Friends of the La Mesa Library is a group of people from the La Mesa area
                             who believes that a modern, effective library is essential to our community.
