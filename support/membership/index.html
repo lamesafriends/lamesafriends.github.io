@@ -1,0 +1,47 @@
+---
+title: Become a Member
+layout: page
+fullwidth: true
+redirect_from:
+    - /membership
+---
+
+<style>
+
+#content > h1 {
+    margin-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+    .row { display: flex; }
+
+    .row .signup-form {
+        width: 35%;
+        margin-right: 20px;
+    }
+
+    .row .membership-copy {
+        width: 65%;
+        margin-left: 20px;
+    }
+}
+
+
+li > ul {
+    margin: 5px 0;
+}
+</style>
+
+<p style="font-size: 0.8em; margin-top: 0;">of the Friends of the La Mesa Library, a nonprofit tax-exempt organization</p>
+
+<div class="row">
+    <div class="signup-form">
+        {% include_relative form.html %}
+    </div>
+    <div class="membership-copy">
+        {% include_relative membership-copy.html %}
+    </div>
+</div>
+
+
+

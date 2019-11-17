@@ -8,6 +8,9 @@
     <meta name="description" content="The Friends of the La Mesa Library raises the majority of its money from used book sales. Our bookstore is conveniently located just inside the library's front entrance, and is open daily from 1 to 4 PM."
     />
     <title>{{ page.title }} - Friends of the La Mesa Library</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
     <link href="/templates/yoo_nano2/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
     <link rel="stylesheet" href="/cache/widgetkit/widgetkit-bdd7ffdc.css" type="text/css" />
 
@@ -57,10 +60,9 @@
             font-style: normal;
         }
         #content, .content {
-            font-family: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-            font-size: calc(0.8em + 0.25vw);
+            /* font-size: calc(0.8em + 0.25vw);
             font-weight: 300;
-            line-height: 1.65;
+            line-height: 1.65; */
             -webkit-font-smoothing: antialiased;
         }
     </style>
@@ -79,9 +81,11 @@
     <link rel="stylesheet" href="/templates/yoo_nano2/fonts/yanonekaffeesatz.css" />
 
 
+    <link rel="stylesheet" href="/asssets/css/main.css">
+
 </head>
 
-<body id="page" class="page sidebar-a-left sidebars-1  isblog " data-config='{"twitter":0,"plusone":0,"facebook":0}'>
+<body id="page" class="page sidebar-a-left sidebars-1  isblog {% if page.fullwidth %} full-width{% endif %}" data-config='{"twitter":0,"plusone":0,"facebook":0}'>
 
 {% comment %}
     <div id="block-toolbar">

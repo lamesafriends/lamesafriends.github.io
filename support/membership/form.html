@@ -1,0 +1,50 @@
+<h2>Sign up for membership online</h2>
+
+<p style="font-size: 0.9em;">Members enjoy a <strong>50% discount</strong> on all books, DVDs, and CDs for sale in the Friends Bookstore. Memberships and donations are tax-deductible (Tax ID 33-0638967).</p>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="hosted_button_id" value="Y2X4AZ8N367PN">
+
+    <div class="form-group">
+        <input type="hidden" name="on0" value="Membership Type">
+        <label>Membership Type</label>
+        <select name="os0" class="form-control">
+            <option value="Individual">Individual $10.00 USD</option>
+            <option value="Family">Family $20.00 USD</option>
+            <option value="Sponsor">Sponsor $50.00 USD</option>
+            <option value="Business">Business $100.00 USD</option>
+        </select>
+        <span class="help-block" style="font-size: 0.9em;">Dues are for a calendar year, beginning in January. Does not automatically renew.</span>
+    </div>
+
+    <div class="form-group">
+        <input type="hidden" name="on1" value="New/Renewal">
+        <label>Renewal?</label>
+        <select name="os1" class="form-control">
+            <option value="New Membership">New Membership </option>
+            <option value="Renewal">Renewal </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <input type="hidden" name="on2" value="I would like to volunteer as">
+        <label>Volunteering</label>
+        <!-- <input type="text" name="os2" maxlength="200" class="form-control"> -->
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="os2" value="Yes, I would like to volunteer. Contact me for details.">
+                Yes, I would like to volunteer. Contact me to discuss details.
+            </label>
+        </div>
+    </div>
+    <input type="hidden" name="currency_code" value="USD">
+    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit"
+        alt="PayPal - The safer, easier way to pay online!">
+</form>
+
+<hr style="margin: 20px 0;">
+
+<div style="font-size: 0.9em;">
+    Alternatively, you can download our <a href="/images/pages/membership/membership-form-2018.pdf">membership</a> form, and bring it into the bookstore or mail it in.
+</div>

@@ -1,0 +1,8 @@
+body.full-width #sidebar-a { display: none; }
+
+body.full-width #maininner {
+    float: none;
+    width: 100%;
+}
+
+#content > h1 { margin-top: 0; }
