@@ -6,3 +6,45 @@ body.full-width #maininner {
 }
 
 #content > h1 { margin-top: 0; }
+
+#scroll-to-top {
+    display: block;
+    position: absolute;
+    top: -26px;
+    left: 50%;
+    z-index: 1;
+    width: 27px;
+    height: 15px;
+    margin-left: -13px;
+    background: #1f1f1f url(/templates/yoo_nano2/styles/wide/images/totop_scroller.png) 50% 7px no-repeat;
+    box-shadow: 0 -1px 0 rgba(255,255,255,0.05);
+    border-radius: 3px;
+    text-decoration: none;
+
+    &:hover {
+        top: -31px;
+        padding-bottom: 5px;
+    }
+}
+
+
+#block-header {
+    padding: 0;
+
+    .wrapper {
+        background-image: url(/images/pages/home/HomePageSlideshow/0001.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        padding: 10px 0;
+
+        @media (min-width: 768px) {
+            background-position: center -268px;
+        }
+    }
+
+    #headerbar h2 {
+        padding: 8px 12px;
+        color: white;                   
+    }
+}

@@ -1,0 +1,116 @@
+---
+title: Donate
+layout: page
+fullwidth: true
+redirect_from: /donate/
+---
+<style>
+    #content>h1 {
+        margin-bottom: 5px;
+    }
+
+    @media (min-width: 768px) {
+        .row {
+            display: flex;
+        }
+
+        .row .donate-form {
+            width: 35%;
+            margin-right: 20px;
+        }
+
+        .row .membership-copy {
+            width: 65%;
+            margin-left: 20px;
+        }
+    }
+
+
+    li>ul {
+        margin: 5px 0;
+    }
+</style>
+
+<p style="font-size: 0.8em; margin-top: 0;">to the Friends of the La Mesa Library, a nonprofit tax-exempt organization
+</p>
+
+<div class="row">
+    <div class="donate-form">
+        <h2>Donate to the Friends Online</h2>
+        <p style="font-size: 0.9em;">Memberships and donations are tax-deductible.<br>(Tax ID 33-0638967)</p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_donations">
+            <input type="hidden" name="business" value="X4ZXXRSRHL3Q6">
+            <input type="hidden" name="lc" value="US">
+            <input type="hidden" name="item_name" value="Friends of the La Mesa Library">
+            <input type="hidden" name="button_subtype" value="services">
+            <input type="hidden" name="no_note" value="1">
+            <input type="hidden" name="no_shipping" value="1">
+            <input type="hidden" name="rm" value="1">
+            <input type="hidden" name="return" value="https://www.lamesalibrary.org/support/thank-you">
+            <input type="hidden" name="cancel_return" value="https://www.lamesalibrary.org/support/donate">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="bn" value="PP-BuyNowBF:btn_donateCC_LG.gif:NonHosted">
+        
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input id="amount" type="number" name="amount" placeholder="Enter Amount" value="" class="form-control">
+            </div>
+        
+            <div class="form-group">
+                <input type="hidden" name="on0" value="Donation Category">
+                <label>Donation Category</label>
+                <select name="os0" class="form-control">
+                    <option id="children" value="Library programs for children">Library programs for children</option>
+                    <option id="teens" value="Library programs for teens">Library programs for teens</option>
+                    <option id="adults" value="Library programs for adults">Library programs for adults</option>
+                    <option id="matching-funds" value="Matching funds">Matching funds</option>
+                    <option id="unrestricted" value="Unrestricted (Board allocates as needed)" selected>Unrestricted (Board allocates as needed)</option>
+                    <option id="save-future" value="Save for future needs">Save for future needs</option>
+                </select>
+            </div>
+        
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit"
+                alt="PayPal - The safer, easier way to pay online!">
+        </form>
+        
+    </div>
+    <div class="membership-copy">
+        {% include_relative _support-copy.html caption="Why donate to the Friends?" %}
+
+        <div>
+            <h2>Corporate Matching Gifts</h2>
+            <p>Many companies match employee donations to non-profits. This means your gift can help provide even more library
+                materials, programs, and services for our community. We encourage you to check with your boss or HR department
+                to see if
+                they have a matching gift program. Questions? <a href="mailto:membership@lamesalibrary.org" target="_blank">Send
+                    us an email</a>.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+(function($){
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    };
+
+    var amount = getUrlParameter('amount');
+    if (amount) {
+        var input = document.getElementById('amount');
+        input.value = amount;
+    }
+
+    var category = getUrlParameter('category')
+    if (category) {
+        var input = document.getElementById(category);
+        if (input) {
+            input.selected = true;
+        }
+    }
+})()
+</script>
+

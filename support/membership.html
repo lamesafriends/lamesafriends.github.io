@@ -1,0 +1,99 @@
+---
+title: Become a Member
+layout: page
+fullwidth: true
+redirect_from: 
+    - /membership/
+    - /join/
+---
+
+<style>
+
+#content > h1 {
+    margin-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+    .row { display: flex; }
+
+    .row .signup-form {
+        width: 35%;
+        margin-right: 20px;
+    }
+
+    .row .membership-copy {
+        width: 65%;
+        margin-left: 20px;
+    }
+}
+
+
+li > ul {
+    margin: 5px 0;
+}
+</style>
+
+<p style="font-size: 0.8em; margin-top: 0;">of the Friends of the La Mesa Library, a nonprofit tax-exempt organization</p>
+
+<div class="row">
+    <div class="signup-form">
+        <h2>Sign up for membership online</h2>
+        
+        <p style="font-size: 0.9em;">Members enjoy a <strong>50% discount</strong> on all books, DVDs, and CDs for sale in the
+            Friends Bookstore. Memberships and donations are tax-deductible. (Tax ID 33-0638967)</p>
+        
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="Y2X4AZ8N367PN">
+        
+            <div class="form-group">
+                <input type="hidden" name="on0" value="Membership Type">
+                <label>Membership Type</label>
+                <select name="os0" class="form-control">
+                    <option value="Individual">Individual $10.00 USD</option>
+                    <option value="Family">Family $20.00 USD</option>
+                    <option value="Sponsor">Sponsor $50.00 USD</option>
+                    <option value="Business">Business $100.00 USD</option>
+                </select>
+                <span class="help-block" style="font-size: 0.9em;">Dues are for a calendar year, beginning in January. Does not
+                    automatically renew.</span>
+            </div>
+        
+            <div class="form-group">
+                <input type="hidden" name="on1" value="New/Renewal">
+                <label>Renewal?</label>
+                <select name="os1" class="form-control">
+                    <option value="New Membership">New Membership </option>
+                    <option value="Renewal">Renewal </option>
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <input type="hidden" name="on2" value="Volunteer">
+                <label>Volunteering</label>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="os2" value="Yes, I would like to volunteer. Contact me for details.">
+                        Yes, I would like to volunteer. Contact me to discuss details.
+                    </label>
+                </div>
+            </div>
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit"
+                alt="PayPal - The safer, easier way to pay online!">
+        </form>
+        
+        <hr style="margin: 20px 0;">
+        
+        <div style="font-size: 0.9em;">
+            Alternatively, you can download our <a href="/images/pages/membership/membership-form-2018.pdf">membership</a> form,
+            and bring it into the bookstore or mail it in.
+        </div>
+    </div>
+    <div class="membership-copy">
+        {% include_relative _support-copy.html caption="Why join the Friends?" %}
+    </div>
+</div>
+
+
+
