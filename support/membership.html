@@ -43,42 +43,73 @@ li > ul {
             Friends Bookstore. Memberships and donations are tax-deductible. (Tax ID 33-0638967)</p>
         
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-            <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="Y2X4AZ8N367PN">
-        
+            <input type="hidden" name="cmd" value="_cart">
+            <input type="hidden" name="upload" value="1">
+            <input type="hidden" name="business" value="X4ZXXRSRHL3Q6">
+            <input type="hidden" name="lc" value="US">
+            <input type="hidden" name="button_subtype" value="services">
+            <input type="hidden" name="no_note" value="1">
+            <input type="hidden" name="rm" value="1">
+            <input type="hidden" name="return" value="https://www.lamesalibrary.org/support/thank-you?membership">
+            <input type="hidden" name="cancel_return" value="https://www.lamesalibrary.org/support/donate">
+            <input type="hidden" name="currency_code" value="USD">           
+
             <div class="form-group">
-                <input type="hidden" name="on0" value="Membership Type">
+                <input type="hidden" name="item_name_1" value="Membership">
+                <input type="hidden" name="on0_1" value="Type">
+                <input id="membershipTypeHidden" type="hidden" name="os0_1" value="Individual">
                 <label>Membership Type</label>
-                <select name="os0" class="form-control">
-                    <option value="Individual">Individual $10.00 USD</option>
-                    <option value="Family">Family $20.00 USD</option>
-                    <option value="Sponsor">Sponsor $50.00 USD</option>
-                    <option value="Business">Business $100.00 USD</option>
+                <select id="membershipType" name="amount_1" class="form-control">
+                    <option value="10">Individual $10.00 USD</option>
+                    <option value="20">Family $20.00 USD</option>
+                    <option value="50">Sponsor $50.00 USD</option>
+                    <option value="100">Business $100.00 USD</option>
                 </select>
                 <span class="help-block" style="font-size: 0.9em;">Dues are for a calendar year, beginning in January. Does not
                     automatically renew.</span>
             </div>
         
             <div class="form-group">
-                <input type="hidden" name="on1" value="New/Renewal">
+                <input type="hidden" name="on1_1" value="Renewal">
                 <label>Renewal?</label>
-                <select name="os1" class="form-control">
-                    <option value="New Membership">New Membership </option>
-                    <option value="Renewal">Renewal </option>
+                <select name="os1_1" class="form-control">
+                    <option value="No">New Membership </option>
+                    <option value="Yes">Renewal </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="hidden" name="item_name_2" value="Donation">
+                <label>Donation</label>
+                <input id="donationAmount" class="form-control" type="number" name="amount_2" placeholder="Enter Amount">
+                <span class="help-block" style="font-size: 0.9em;">I wish to make an additional donation.</span>                        
+            </div>
+
+            <div id="donationCategoryCtn" class="form-group hidden">
+                <input type="hidden" name="on0_2" value="Donation Category">
+                <label>Donation Category</label>
+                <select name="os0_2" class="form-control">
+                    <option id="children" value="Library programs for children">Library programs for children</option>
+                    <option id="teens" value="Library programs for teens">Library programs for teens</option>
+                    <option id="adults" value="Library programs for adults">Library programs for adults</option>
+                    <option id="matching-funds" value="Matching funds">Matching funds</option>
+                    <option id="unrestricted" value="Unrestricted (Board allocates as needed)" selected>Unrestricted (Board
+                        allocates as needed)</option>
+                    <option id="save-future" value="Save for future needs">Save for future needs</option>
                 </select>
             </div>
         
             <div class="form-group">
-                <input type="hidden" name="on2" value="Volunteer">
+                <input type="hidden" name="on2_1" value="Volunteer">
                 <label>Volunteering</label>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="os2" value="Yes, I would like to volunteer. Contact me for details.">
+                        <input type="checkbox" name="os2_1" value="Yes, I would like to volunteer. Contact me for details.">
                         Yes, I would like to volunteer. Contact me to discuss details.
                     </label>
                 </div>
             </div>
-            <input type="hidden" name="currency_code" value="USD">
+
             <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit"
                 alt="PayPal - The safer, easier way to pay online!">
         </form>
@@ -94,6 +125,40 @@ li > ul {
         {% include_relative _support-copy.html caption="Why join the Friends?" %}
     </div>
 </div>
+
+<script>
+    (function(){
+        document.getElementById('membershipType').addEventListener('change', function(event) {
+            var amount = event.target.value;
+            var type = '';
+            switch(amount) {
+                case '10':
+                    type = 'Individual';
+                    break;
+                case '20':
+                    type = 'Family';
+                    break;
+                case '50':
+                    type = 'Sponsor';
+                    break;
+                case '100':
+                    type = 'Business'
+                    break;
+            }
+            
+            document.getElementById('membershipTypeHidden').value = type;
+        });
+
+        document.getElementById('donationAmount').addEventListener('input', function(event) {
+            if (event.target.value) {
+                document.getElementById('donationCategoryCtn').classList.remove('hidden');
+            }
+            else {
+                document.getElementById('donationCategoryCtn').classList.add('hidden');
+            }
+        })
+    })()
+</script>
 
 
 
