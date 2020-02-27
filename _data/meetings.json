@@ -166,8 +166,38 @@
             },
             {
                 "name": "August",
-                "minutes": false,
+                "minutes": "/images/pages/meetings/2019/minutes-2019-08.pdf",
                 "statement": "/images/pages/meetings/2019/statement-2019-08.pdf"
+            },
+            {
+                "name": "September",
+                "minutes": false,
+                "statement": false
+            },
+            {
+                "name": "October",
+                "minutes": false,
+                "statement": "/images/pages/meetings/2019/statement-2019-10.pdf"
+            },
+            {
+                "name": "November",
+                "minutes": false,
+                "statement": "/images/pages/meetings/2019/statement-2019-11.pdf"
+            },
+            {
+                "name": "December",
+                "minutes": "/images/pages/meetings/2019/minutes-2019-12.pdf",
+                "statement": "/images/pages/meetings/2019/statement-2019-12.pdf"
+            }
+        ]
+    },
+    {
+        "year": 2020,
+        "months": [
+            {
+                "name": "January",
+                "minutes": false,
+                "statement": "/images/pages/meetings/2020/statement-2020-01.pdf"
             }
         ]
     }
