@@ -44,3 +44,20 @@ body.full-width #maininner {
         color: white;                   
     }
 }
+
+#announcements {
+    padding: 15px;
+
+    &.danger { 
+        background-color: #D63430; 
+        color: #fff;
+    }
+
+    h1 { 
+        margin: 0; 
+        font-size: 34px;
+        line-height: 0.75;
+    }
+
+    p { margin: 10px 0 0 0; }
+}
