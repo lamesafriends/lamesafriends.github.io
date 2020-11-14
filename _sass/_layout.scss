@@ -36,15 +36,16 @@ body.full-width #maininner {
 
 
 #block-header {
-    padding: 0 0 5px 0;
-    background: $colorPrimary;
+    padding: 0;
+    background: #fff;
 
     .wrapper {
         background-image: url('/images/PageDecoration/header.jpg');
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        padding: 10px 0;
+        padding: 10px;
+        border-bottom: 5px solid $colorPrimary
     }
 
     #headerbar h2 {
@@ -60,6 +61,7 @@ body.full-width #maininner {
 }
 
 #block-footer {
+    padding: 15px 0;
     background: $colorPrimary;
 
     a, p { color: #fff; }
