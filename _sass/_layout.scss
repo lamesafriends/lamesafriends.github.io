@@ -5,6 +5,13 @@ body.full-width #maininner {
     width: 100%;
 }
 
+#logo img {
+    width: 250px;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
 #content > h1 { margin-top: 0; }
 
 #scroll-to-top {
@@ -16,7 +23,7 @@ body.full-width #maininner {
     width: 27px;
     height: 15px;
     margin-left: -13px;
-    background: #1f1f1f url(/templates/yoo_nano2/styles/wide/images/totop_scroller.png) 50% 7px no-repeat;
+    background: $colorPrimary url(/templates/yoo_nano2/styles/wide/images/totop_scroller.png) 50% 7px no-repeat;
     box-shadow: 0 -1px 0 rgba(255,255,255,0.05);
     border-radius: 3px;
     text-decoration: none;
@@ -29,7 +36,8 @@ body.full-width #maininner {
 
 
 #block-header {
-    padding: 0;
+    padding: 0 0 5px 0;
+    background: $colorPrimary;
 
     .wrapper {
         background-image: url('/images/PageDecoration/header.jpg');
@@ -43,6 +51,18 @@ body.full-width #maininner {
         padding: 8px 12px;
         color: white;                   
     }
+
+    .menu-dropdown li.level1:hover .level1, 
+    .menu-dropdown li.remain .level1, 
+    .menu-dropdown li.active .level1 {
+        background: $colorPrimary;
+    }
+}
+
+#block-footer {
+    background: $colorPrimary;
+
+    a, p { color: #fff; }
 }
 
 #announcements {
