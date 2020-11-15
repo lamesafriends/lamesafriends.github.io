@@ -5,11 +5,15 @@ body.full-width #maininner {
     width: 100%;
 }
 
-#logo p {
+#header .logo-ctn{
     width: 250px;
     background: white;
     padding: 15px 15px 10px 15px;
     border-radius: 10px;
+
+    @media (max-width: 767px) {
+        width: 100%;
+    }
 }
 
 #content > h1 { margin-top: 0; }
