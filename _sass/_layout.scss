@@ -11,6 +11,8 @@ body.full-width #maininner {
     padding: 15px 15px 10px 15px;
     border-radius: 10px;
 
+    img { image-rendering: -webkit-optimize-contrast; }
+
     @media (max-width: 767px) {
         width: 100%;
     }
