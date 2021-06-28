@@ -3,6 +3,10 @@ title: Friends Meetings
 layout: default
 ---
 
+<link rel="stylesheet" href="https://unpkg.com/accordion-js@3.1.1/dist/accordion.min.css">
+<script src="https://unpkg.com/accordion-js@3.1.1/dist/accordion.min.js"></script>
+
+
 <section id="content" class="grid-block">
     <div id="system">
         <article class="item">
@@ -12,59 +16,21 @@ layout: default
 
             <div class="content clearfix">
 
-                {% for year in site.data.meetings reversed %}
-                <table class="zebra" style="width: 100%;">
-                    <thead>
-                        <tr>
-                            <th width="25%">{{ year.year }}</th>
-                            <th align="center" width="37%">Minutes</th>
-                            <th align="center">Statement</th>
-                        </tr>
-                    </thead>
-                    <tbody> 
-                        {% for month in year.months reversed %}                       
-                        <tr>
-                            <td>{{ month.name }} {{ year.year }}</td>
-                            <td>
-                                {% if month.minutes %}
-                                <a href="{{ month.minutes }}" target="_blank" class="wf_file">
-                                    {% if month.minutes_description %}
-                                    <span class="wf_file_text">{{ month.minutes_description }}</span>
-                                    {% else %}
-                                    <span class="wf_file_text">{{ month.name }} {{ year.year }} Minutes</span>
-                                    {% endif %}
-                                </a>
-                                {% else %}
-                                    {% if month.minutes_description %}
-                                    {{ month.minutes_description }}
-                                    {% else %}
-                                    No {{ month.name }} Meeting
-                                    {% endif %}
-                                {% endif %}
-                            </td>
-                            <td>
-                                {% if month.statement %}
-                                <a href="{{ month.statement }}" target="_blank" class="wf_file">
-                                    {% if month.statement_description %}
-                                    <span class="wf_file_text">{{ month.statement_description }}</span>
-                                    {% else %}
-                                    <span class="wf_file_text">{{ month.name }} {{ year.year }} Statement</span>
-                                    {% endif %}
-                                </a>
-                                {% else %}
-                                    {% if month.statement_description %}
-                                    {{ month.statement_description }}
-                                    {% else %}
-                                    No {{ month.name }} Statement
-                                    {% endif %}
-                                {% endif %}
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                <hr class="dotted">
+                <div class="accordion-container">
+                {% for year in site.data.meetings reversed %}                
+                    <div class="ac">
+                        <h2 class="ac-header">
+                            <button class="ac-trigger">{{ year.year }}</button>
+                        </h2>
+                        <div class="ac-panel">
+                            {% if year.google_drive_id %}
+                            <iframe src="https://drive.google.com/embeddedfolderview?id={{ year.google_drive_id }}#list"
+                                style="width:100%; height:500px; border:0;"></iframe>
+                            {% endif %}
+                        </div>
+                    </div>
                 {% endfor %}
+                </div>
 
                 <p>Final By-Laws viewable here:
                     <a href="/images/pages/meetings/By-Laws.pdf" target="_blank">Friends Adopted By-Laws&nbsp;</a>
@@ -73,3 +39,7 @@ layout: default
         </article>
     </div>
 </section>
+
+<script>
+    new Accordion('.accordion-container', { openOnInit: [0] });
+</script>

@@ -1,204 +1,46 @@
 [
     {
+        "year": 2011,
+        "google_drive_id": "15zhH02xBzsPbdZa6TmiC5Lph21J4FGju"
+    },
+    {
+        "year": 2012,
+        "google_drive_id": "14p5ikVFbr9lMSEm8P5YGuTUkN69kT2J0"
+    },
+    {
+        "year": 2013,
+        "google_drive_id": "1dghRSsYIjhXrLV0IH0qhXtRcDk-kaa17"
+    },
+    {
+        "year": 2014,
+        "google_drive_id": "1T8MHQt-9LiZ1hr2wTPl-6zW70wMFr2gz"
+    },
+    {
+        "year": 2015,
+        "google_drive_id": "1-uk8heSmLLjNE-CnrUZD_c7sSP1HW7Or"
+    },
+    {
+        "year": 2016,
+        "google_drive_id": "1cb9DSZPFBPu4hRPypYmx7WIrjf1Qmyac"
+    },
+    {
         "year": 2017,
-        "months": [
-            {
-                "name": "January",
-                "minutes": "/images/pages/meetings/2017/minutes-2017-01.pdf",
-                "statement": "/images/pages/meetings/2017/statement-2017-01.pdf"
-            },
-            {
-                "name": "February",
-                "minutes": "/images/pages/meetings/2017/minutes-2017-02.pdf",
-                "statement": "/images/pages/meetings/2017/statement-2017-02.pdf"
-            },
-            {
-                "name": "March",
-                "minutes": false,
-                "statement": "/images/pages/meetings/2017/statement-2017-03.pdf"
-            },
-            {
-                "name": "April",
-                "minutes": "/images/pages/meetings/2017/minutes-2017-04.pdf",
-                "statement": "/images/pages/meetings/2017/statement-2017-04.pdf"
-            },
-            {
-                "name": "May",
-                "minutes": false,
-                "statement": "/images/pages/meetings/2017/statement-2017-05.pdf"
-            },
-            {
-                "name": "June",
-                "minutes": "/images/pages/meetings/2017/minutes-2017-06.pdf",
-                "statement": "/images/pages/meetings/2017/statement-2017-06.pdf"
-            },
-            {
-                "name": "July",
-                "minutes": "/images/pages/meetings/2017/minutes-2017-07.pdf",
-                "statement": "/images/pages/meetings/2017/statement-2017-07.pdf"
-            },
-            {
-                "name": "August",
-                "minutes": "/images/pages/meetings/2017/minutes-2017-08.pdf",
-                "statement": false
-            },
-            {
-                "name": "October",
-                "minutes": "/images/pages/meetings/2017/minutes-2017-10.pdf",
-                "statement": "/images/pages/meetings/2017/statement-2017-10.pdf"
-            },
-            {
-                "name": "December",
-                "minutes": "/images/pages/meetings/2017/minutes-2017-01.pdf",
-                "statement": "/images/pages/meetings/2017/statement-2017-12.pdf"
-            }
-        ]
+        "google_drive_id": "17qFKL7qzv-UgLIImQ2UEN7OcEJOTurgR"
     },
     {
         "year": 2018,
-        "months": [
-            {
-                "name": "January",
-                "minutes": "/images/pages/meetings/2018/minutes-2018-01.pdf",
-                "statement": "/images/pages/meetings/2018/statement-2018-01.pdf"
-            },
-            {
-                "name": "February",
-                "minutes": false,
-                "statement": "/images/pages/meetings/2018/statement-2018-02.pdf"
-            },
-            {
-                "name": "March",
-                "minutes": "/images/pages/meetings/2018/minutes-2018-03.pdf",
-                "statement": "/images/pages/meetings/2018/statement-2018-03.pdf"
-            },
-            {
-                "name": "April",
-                "minutes": "/images/pages/meetings/2018/minutes-2018-04.pdf",
-                "statement": "/images/pages/meetings/2018/statement-2018-04.pdf"
-            },
-            {
-                "name": "May",
-                "minutes": "/images/pages/meetings/2018/minutes-2018-05.pdf",
-                "statement": "/images/pages/meetings/2018/statement-2018-05.pdf"
-            },
-            {
-                "name": "June",
-                "minutes": false,
-                "statement": "/images/pages/meetings/2018/statement-2018-06.pdf"
-            },
-            {
-                "name": "July",
-                "minutes": "/images/pages/meetings/2018/minutes-2018-07.pdf",
-                "statement": "/images/pages/meetings/2018/statement-2018-07.pdf"
-            },
-            {
-                "name": "August",
-                "minutes": "/images/pages/meetings/2018/minutes-2018-08.pdf",
-                "statement": "/images/pages/meetings/2018/statement-2018-08.pdf"
-            },
-            {
-                "name": "September",
-                "minutes": "/images/pages/meetings/2018/minutes-2018-09.pdf",
-                "statement": "/images/pages/meetings/2018/statement-2018-09.pdf"
-            },
-            {
-                "name": "October",
-                "minutes": "/images/pages/meetings/2018/minutes-2018-10.pdf",
-                "statement": "/images/pages/meetings/2018/statement-2018-10.pdf"
-            },
-            {
-                "name": "November",
-                "minutes": false,
-                "statement": "/images/pages/meetings/2018/statement-2018-11.pdf"
-            },
-            {
-                "name": "December",
-                "minutes": "/images/pages/meetings/2018/minutes-2018-12.pdf",
-                "statement": "/images/pages/meetings/2018/statement-2018-12.pdf"
-            }
-        ]
+        "google_drive_id": "1Se8eMCJYlbN-VOZeINpUa6kff_fVNZ0e"
     },
     {
         "year": 2019,
-        "months": [
-            {
-                "name": "January",
-                "minutes": "/images/pages/meetings/2019/minutes-2019-01.pdf",
-                "statement": "/images/pages/meetings/2019/statement-2019-01.pdf"
-            },
-            {
-                "name": "February",
-                "minutes": "/images/pages/meetings/2019/minutes-2019-02.pdf",
-                "statement": "/images/pages/meetings/2019/statement-2019-02.pdf"
-            },
-            {
-                "name": "March",
-                "minutes": false,
-                "statement": "/images/pages/meetings/2019/statement-2019-03.pdf"
-            },
-            {
-                "name": "April",
-                "minutes": "/images/pages/meetings/2019/minutes-2019-04.pdf",
-                "statement": "/images/pages/meetings/2019/statement-2019-04.pdf"
-            },
-            {
-                "name": "May",
-                "minutes": "/images/pages/meetings/2019/minutes-2019-05.pdf",
-                "statement": "/images/pages/meetings/2019/statement-2019-05.pdf"
-            },
-            {
-                "name": "May",
-                "minutes": "/images/pages/meetings/2019/minutes-2019-05_budget.pdf",
-                "minutes_description": "Speical Budget Meeting",
-                "statement": false,
-                "statement_description": ""
-            },
-            {
-                "name": "June",
-                "minutes": false,
-                "statement": "/images/pages/meetings/2019/statement-2019-06.pdf"
-            },
-            {
-                "name": "July",
-                "minutes": "/images/pages/meetings/2019/minutes-2019-07.pdf",
-                "statement": "/images/pages/meetings/2019/statement-2019-07.pdf"
-            },
-            {
-                "name": "August",
-                "minutes": "/images/pages/meetings/2019/minutes-2019-08.pdf",
-                "statement": "/images/pages/meetings/2019/statement-2019-08.pdf"
-            },
-            {
-                "name": "September",
-                "minutes": "/images/pages/meetings/2019/minutes-2019-09.pdf",
-                "statement": false
-            },
-            {
-                "name": "October",
-                "minutes": false,
-                "statement": "/images/pages/meetings/2019/statement-2019-10.pdf"
-            },
-            {
-                "name": "November",
-                "minutes": false,
-                "statement": "/images/pages/meetings/2019/statement-2019-11.pdf"
-            },
-            {
-                "name": "December",
-                "minutes": "/images/pages/meetings/2019/minutes-2019-12.pdf",
-                "statement": "/images/pages/meetings/2019/statement-2019-12.pdf"
-            }
-        ]
+        "google_drive_id": "1jgrQo058uJ0xVNnM8TkoFrvimp8ZNoam"
     },
     {
         "year": 2020,
-        "months": [
-            {
-                "name": "January",
-                "minutes": false,
-                "statement": "/images/pages/meetings/2020/statement-2020-01.pdf"
-            }
-        ]
+        "google_drive_id": "1j2n_vaga-fx9tEOlyhhu0OLkbpFo6gv4"
+    },
+    {
+        "year": 2021,
+        "google_drive_id": "1sviK26sDVngbcUHrsimuP3UbrRRH32jJ"
     }
 ]
