@@ -9,7 +9,7 @@ layout: page
 <p>The County of San Diego budgets for a basic level of staffing and service to all the libraries in the system. In
     addition, the County Supervisors' Library Materials Matching Fund will match, dollar for dollar, any locally generated
     financial contributions for additional materials or supplies.</p>
-<p>The La Mesa Library is one of the most active branches of the La Mesa County Library System. The funds raised by
+<p class="box-info">The La Mesa Library is one of the most active branches of the La Mesa County Library System. The funds raised by
     the Friends of the La Mesa Library go a long way toward providing the materials that patrons of the La Mesa Library
     have long enjoyed.</p>
 
