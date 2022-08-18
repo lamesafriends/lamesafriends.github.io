@@ -1,6 +1,6 @@
 {
     "imageRoot": "/images/pages/board-members/",
-    "version": "3",
+    "version": "4",
     "groupPhoto": "board-members-2019.jpg",
     "members": [
         {
@@ -19,9 +19,9 @@
             "image": "bob-thatcher.jpg"
         },
         {
-            "name": "Jon Lange",
+            "name": "Marilyn Adams",
             "title": "Secretary",
-            "image": "jon-lange.jpg"
+            "image": "avatar.png"
         },
         {
             "name": "Joyce Purcell",
@@ -29,9 +29,9 @@
             "image": "joyce-purcell.jpg"
         },
         {
-            "name": "Chelsie Harris",
+            "name": "Cassie Koldewyn",
             "title": "Library Ex-Officio",
-            "image": "chelsie-harris.jpg"
+            "image": "avatar.png"
         },
         {
             "name": "Justin Walker",
@@ -39,9 +39,9 @@
             "image": "justin-walker.jpg"
         },
         {
-            "name": "Bonnie Baranoff",
+            "name": "Joseph Miesner",
             "title": "Publicity Chair",
-            "image": "bonnie-baranoff.jpg"
+            "image": "avatar.png"
         },
         {
             "name": "Misty Thompson",
