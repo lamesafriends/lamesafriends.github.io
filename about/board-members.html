@@ -23,19 +23,21 @@ layout: default
                     <span style="font-family: monospace; font-size: 12px; background-color: #eaeaea;">
                         <div class="wk-gallery wk-gallery-wall clearfix polaroid margin ">
                         {% for member in site.data.board-members.members %}
-                        
-                            <a class="" href="{{ site.data.board-members.imageRoot }}{{ member.image}}?v={{ site.data.board-members.version }}" data-lightbox="group:14-580babbad8f15"
-                                title="{{ member.name }}, {{ member.title }}">
+
+                            <!-- <a class="" href="{{ site.data.board-members.imageRoot }}{{ member.image}}?v={{ site.data.board-members.version }}" data-lightbox="group:14-580babbad8f15"
+                                title="{{ member.name }}, {{ member.title }}"> -->
+                            <div>
                                 <div>
-                                    <img src="{{ site.data.board-members.imageRoot }}{{ member.image}}?v={{ site.data.board-members.version }}" width="200" height="245" alt="{{ member.name }}" />
+                                    <img src="{{ site.data.board-members.imageRoot }}{{ member.image}}?v={{ site.data.board-members.version }}" width="200" height="245" alt="{{ member.name }}, {{ member.title }}" />
                                     <p class="title">{{ member.name }}, {{ member.title }}</p>
                                 </div>
-                            </a>
+                            </div>
+                            <!-- </a> -->
                         {% endfor%}
                         </div>
                     </span>
                 </h2>
-                
+
                 <!-- most recent Presidents Message -->
                 <hr class="dotted">
                 {% for post in site.posts %}
