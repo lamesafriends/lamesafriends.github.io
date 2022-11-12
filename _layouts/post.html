@@ -5,5 +5,15 @@ layout: default
 <section id="content" class="grid-block">
     <h1>{{ page.title }}</h1>
     <p>{{ page.date | date: '%B %d, %Y' }}</p>
+
+    {% if page.fbPostUrl %}
+    <div class="fb-post"
+        data-href="{{ page.fbPostUrl }}"
+        data-width="500"
+        data-show-text="true">
+        [Facebook embeds are being blocked]
+    </div>
+    {% endif %}
+
     {{ content }}
 </section>

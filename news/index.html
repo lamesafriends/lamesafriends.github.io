@@ -18,7 +18,20 @@ title: News
         <img src="{{ post.featured-image}}" width="400" alt="">
     </div>
     {% endif %}
-    {{ post.excerpt | truncate: 800 | strip_html }} <a href="{{ post.url }}">(Read More)</a>
+    {% if post.fbPostUrl %}
+    <div class="fb-post"
+        data-href="{{ post.fbPostUrl }}"
+        data-width="500"
+        data-show-text="true">
+        [Facebook embeds are being blocked]
+    </div>
+    {% endif %}
+
+    {% if post.content %}
+    <p>
+      {{ post.excerpt | truncate: 800 | strip_html }} <a href="{{ post.url }}">(Read More)</a>
+    </p>
+    {% endif %}
   </div>
   <hr class="dotted">
 {% endfor %}
