@@ -50,3 +50,10 @@ sass:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+jekyll_compose:
+  default_front_matter:
+    posts:
+      featured-image:
+      tags:
+      fbPostUrl:
