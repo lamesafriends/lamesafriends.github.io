@@ -342,8 +342,13 @@
                 // highlight current page in nav
                 var path = window.location.pathname;
                 path = path.replace(/\/$/g, '');
+
+                // test for posts
+                var isPost = /^\/\d{4}\/.+/.test(path);
+
                 $('#menu a').each(function (index, value) {
-                    if ($(this).attr('href') == path) {
+                    var href = $(this).attr('href');
+                    if (href == path || (href == '/news' && isPost)) {
                         $(this).addClass('active current');
                         $(this).parent('li').addClass('active current');
                         if ($(this).hasClass('level2')) {
