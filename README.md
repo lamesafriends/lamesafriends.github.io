@@ -14,3 +14,7 @@ bundle exec jekyll serve
 ```
 bundle exec jekyll post "My New Post"
 ```
+
+### deployements
+
+https://github.com/lamesafriends/lamesafriends.github.io/actions
