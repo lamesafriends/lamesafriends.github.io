@@ -1,9 +1,10 @@
 ---
 title: Board Members
 layout: default
+fullwidth: true
 ---
 
-<section id="content" class="grid-block">
+<section id="content" class="grid-block width-800">
     <div id="system-message-container"></div>
 
     <div id="system">
@@ -14,42 +15,49 @@ layout: default
 
             <div class="content clearfix">
 
-                <div style="border: 1px solid darkGray; padding: 10px; display: inline-block; max-width: 100%;">
+                <!-- <div style="border: 1px solid darkGray; padding: 10px; display: inline-block; max-width: 100%;">
                     <img src="{{ site.data.board-members.imageRoot }}{{ site.data.board-members.groupPhoto }}?v={{ site.data.board-members.version }}" width="500"
                         style="max-width: 100%; display: block;" />
-                </div>
+                </div> -->
 
-                <h2 align="left">
-                    <span style="font-family: monospace; font-size: 12px; background-color: #eaeaea;">
-                        <div class="wk-gallery wk-gallery-wall clearfix polaroid margin ">
-                        {% for member in site.data.board-members.members %}
+                <div class="board-members-ctn">
+                    {% for member in site.data.board-members.members %}
 
-                            <!-- <a class="" href="{{ site.data.board-members.imageRoot }}{{ member.image}}?v={{ site.data.board-members.version }}" data-lightbox="group:14-580babbad8f15"
-                                title="{{ member.name }}, {{ member.title }}"> -->
+                    <div class="board-member {% if member.bio != nil %}has-bio{% endif %}">
+                        <div class="photo-ctn">
                             <div>
-                                <div>
-                                    <img src="{{ site.data.board-members.imageRoot }}{{ member.image}}?v={{ site.data.board-members.version }}" width="200" height="245" alt="{{ member.name }}, {{ member.title }}" />
-                                    <p class="title">{{ member.name }}, {{ member.title }}</p>
+                                <img
+                                    src="{{ site.data.board-members.imageRoot }}{{ member.image | default: 'avatar.png'}}?v={{ site.data.board-members.version }}"
+                                    width="200"
+                                    height="245"
+                                    alt="{{ member.name }}, {{ member.title }}" />
+                                <div class="photo-label">
+                                    <div class="name">{{ member.name }}</div>
+                                    <div class="title">{{ member.title }}</div>
                                 </div>
                             </div>
-                            <!-- </a> -->
-                        {% endfor%}
                         </div>
-                    </span>
-                </h2>
+                        <div class="bio">{{ member.bio }}</div>
+                    </div>
+
+                    {% endfor %}
+                </div>
+
+                <hr class="dotted">
+
+                <div class="past-members-ctn">
+                    <div>We would like to recognized and thank past members of our board:</div>
+                    <ul>
+                        {% for member in site.data.board-members.pastMembers %}
+                        <li>{{ member.name }}, {{ member.title }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
 
                 <!-- most recent Presidents Message -->
                 <hr class="dotted">
-                {% for post in site.posts %}
-                {% if post.tags contains 'presidents-message' %}
-                <h2>President's Message</h2>
-                <p>{{ post.date | date: '%B %d, %Y' }}</p>
-                {{ post.content }}
-                {% break %}
-                {% endif %}
-                {% endfor %}
-                <hr class="dotted">
-                <!-- /end president's message -->
+
+                {% include presidents-message.html %}
 
 
             </div>

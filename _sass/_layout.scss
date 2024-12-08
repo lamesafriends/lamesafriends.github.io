@@ -20,6 +20,11 @@ body.full-width #maininner {
 
 #content > h1 { margin-top: 0; }
 
+#content.width-800 {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 #scroll-to-top {
     display: block;
     position: absolute;
@@ -99,3 +104,5 @@ body.full-width #maininner {
 
     p { margin: 10px 0 0 0; }
 }
+
+hr { margin: 20px 0; }

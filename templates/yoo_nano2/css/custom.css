@@ -5,9 +5,9 @@
  */
 .wk-gallery-wall.polaroid p.title {
   max-width:  190px;
-  height: 56px;
+  /* height: 56px; */
 }
- 
+
 .hitcounter_container div {
   display: none;
 }
@@ -20,7 +20,7 @@ div.hitcounter_container {
   border: medium none !important;
   padding: 0 !important;
 }
- 
+
 
 .custom-logo {
   display: inline-block;
@@ -34,5 +34,5 @@ div.hitcounter_container {
 @media (max-width: 479px) {
 
   .custom-logo { height: 60px; }
-  
+
 }

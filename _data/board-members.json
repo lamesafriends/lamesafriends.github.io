@@ -1,18 +1,56 @@
 {
     "imageRoot": "/images/pages/board-members/",
-    "version": "4",
+    "version": "5",
     "groupPhoto": "board-members-2019.jpg",
     "members": [
         {
-            "name": "John Schmitz",
+            "name": "Melony Watson",
             "title": "President",
-            "image": "john-schmitz.jpg"
+            "image": "",
+            "bio": "Melony and her family recently moved back to La Mesa where she grew up, and she shared: \"I am a teaching professional with over a decade of experience in education, passionate about literacy and the joy that comes from fostering a lifelong love of learning. Books have always been a significant part of my life; if someone were to describe me, my love for reading would definitely come up. And possibly my piles, upon piles, of books… I’m excited to work alongside such passionate members, supporting the library as it adapts to new challenges while staying rooted in its mission is incredibly important to me. I look forward to contributing to that effort as our community grows and evolves.\""
         },
         {
             "name": "Robin Theilmann",
             "title": "VP &amp; Bookstore Manager",
-            "image": "robin-theilmann.jpg"
+            "image": "robin-theilmann.jpg",
+            "bio": "Robin supports the FOL because of her lifelong connection to libraries, which started at an early age. She recalls: \"I was an early reader. As soon as I could ride my bike to the library by myself back in the early '60s, I would ride to the College Avenue library and check out a bag of books and bring them home to read. As a a young mother in the mid '80s, I took my two little boys to the library every week, and we would check out 10 picture books — always 10 so we knew how many to return the next week. Libraries have been a source of joy and knowledge for me and my family. I enjoy giving back to the La Mesa Library during my retirement years because the library is a source of knowledge and joyful programs for people of all ages.\"\n\nFor those wondering if their FOL memberships make a difference, Robin reminds us that: \"Many library programs are funded by volunteer hours and donations of the volunteers and members of the FOL.\""
         },
+        {
+            "name": "John Schmitz",
+            "title": "Treasurer",
+            "image": "john-schmitz.jpg",
+            "bio": "After 14 years as Board President, John recently stepped back into the role of Treasurer. John has tirelessly advocated for a larger, better library for La Mesa. He looks back at his time as president with fondness saying, \"I appreciate so much the members of the La Mesa community. You helped the Friends raise funds to support the library with materials, programs, and improvements.\" John's efforts have seen the nonprofit organization grow into a thriving troupe of volunteers dedicated to supporting library services in the La Mesa community. He has been instrumental in re-launching annual school visits to the La Mesa Civic Center, introducing all 3rd graders to important community services including the library, police and fire stations, city hall, and public works."
+        },
+        {
+            "name": "Christina Ly",
+            "title": "Secretary and Publicity & Promotions Co-Chair",
+            "image": "",
+            "bio": "Christina joined the Friends earlier this year saying: \"Although I grew up in San Diego, I’m relatively new to the La Mesa community, having moved here in 2019. I immediately fell in love with La Mesa’s small-town feel. As a lifelong book lover, I was just starting to seek out volunteer opportunities when I came across an opening with the Friends of the Library. It felt like a perfect opportunity I couldn’t pass up. I’m excited to serve as Secretary and eager to support the Board in any way I can!\""
+        },
+        {
+            "name": "Leslie Stump",
+            "title": "Publicity & Promotions Co-Chair",
+            "image": "",
+            "bio": "Leslie joined the Friends earlier this year, and when asked about her connection to libraries she recalled: \"In junior high school, I would do my homework at the library until my mom, who was a teacher, could pick me up. My love of reading extended into college where I majored in English with an emphasis in Journalism at SDSU. When I heard the Friends needed someone to help promote their organization and the La Mesa Library, I jumped at the chance. I love supporting my community and making new connections at various events. In an online world that can be so divisive these days, I appreciate the opportunity to express my creativity, promote the library, and hopefully bring some joy to our social media followers and the greater La Mesa community.\""
+        },
+        {
+            "name": "Justin Walker",
+            "title": "Membership & IT Coordinator",
+            "image": "justin-walker.jpg",
+            "bio": "Justin's Board role is overseeing Memberships. He recounts: \"I started volunteering for the Friends of the La Mesa library almost seven years ago after moving to La Mesa with my husband. We are both big supporters of libraries and know how much they mean to our communities. I work as a web developer and began on the Friends board as \"IT Support\" for the organization. One of my first tasks was relaunching the Friends website. During the pandemic, my husband and I started selling books and DVDs online for the Friends to supplement our bookstore sales. I continue to maintain the website and work with the board to keep our technology up to date. I enjoy contributing my technical expertise and look forward to helping the Friends continue to grow and support the library!\""
+        },
+        {
+            "name": "Cassie Koldewyn",
+            "title": "Library Ex-Officio",
+            "image": ""
+        },
+        {
+            "name": "Misty Thompson",
+            "title": "City Ex-Officio",
+            "image": "misty-thompson.jpg"
+        }
+    ],
+    "pastMembers": [
         {
             "name": "Bob Thatcher",
             "title": "Treasurer",
@@ -21,7 +59,7 @@
         {
             "name": "Marilyn Adams",
             "title": "Secretary",
-            "image": "avatar.png"
+            "image": ""
         },
         {
             "name": "Joyce Purcell",
@@ -29,24 +67,19 @@
             "image": "joyce-purcell.jpg"
         },
         {
-            "name": "Cassie Koldewyn",
-            "title": "Library Ex-Officio",
-            "image": "avatar.png"
+            "name": "Jonathan Lange",
+            "title": "Secretary",
+            "image": "jon-lange.jpg"
         },
         {
-            "name": "Justin Walker",
+            "name": "Bonnie Baranoff",
+            "title": "Publicity & Promotions",
+            "image": "bonnie-baranoff.jpg"
+        },
+        {
+            "name": "Bob Duff",
             "title": "IT Coordinator",
-            "image": "justin-walker.jpg"
-        },
-        {
-            "name": "Joseph Miesner",
-            "title": "Publicity Chair",
-            "image": "avatar.png"
-        },
-        {
-            "name": "Misty Thompson",
-            "title": "City Ex-Officio",
-            "image": "misty-thompson.jpg"
+            "image": "bob-duff.jpg"
         }
     ]
 }
