@@ -86,7 +86,7 @@
 
 </head>
 
-<body id="page" class="page sidebar-a-left sidebars-1  isblog {% if page.fullwidth %} full-width{% endif %}" data-config='{"twitter":0,"plusone":0,"facebook":0}'>
+<body id="page" class="page sidebar-a-left sidebars-1  isblog {% if page.fullwidth or layout.fullwidth %} full-width{% endif %}" data-config='{"twitter":0,"plusone":0,"facebook":0}'>
 
 {% comment %}
     <div id="block-toolbar">
@@ -237,10 +237,6 @@
                     <div class="grid-box width100 grid-v">
                         <div class="module mod-line  deepest">
 
-                            <h3 class="module-title"><span class="material-icons">watch_later</span> Bookstore Hours</h3>
-
-                            {% include bookstore-hours.html %}
-
                             <h3 class="module-title">
                                 <span class="material-icons">place</span> Bookstore Location
                             </h3>
@@ -250,6 +246,10 @@
                                     La Mesa CA 91942
                                 </p>
                             </div>
+
+                            <h3 class="module-title"><span class="material-icons">watch_later</span> Bookstore Hours</h3>
+
+                            {% include bookstore-hours.html %}
                         </div>
                     </div>
 
@@ -265,13 +265,14 @@
                         </div>
                     </div>
 
-                    <div class="grid-box width100 grid-v">
+                    <!-- image is broken -->
+                    <!-- <div class="grid-box width100 grid-v">
                         <div class="module mod-line deepest" style="text-align: center;">
                             <a href="https://www.guidestar.org/profile/33-0638967" target="_blank">
                                 <img src="https://widgets.guidestar.org/gximage2?o=7379424&l=v4" alt="GuideStar Seal of Transparency" style="vertical-align: bottom; max-width: 100px;" />
                             </a>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="grid-box width100 grid-v">
                         <div class="module mod-line deepest">

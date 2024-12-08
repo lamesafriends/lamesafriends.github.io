@@ -15,10 +15,7 @@ layout: default
                 <article class="item">
 
                     <!-- home page announcements -->
-                    <div id="announcements">
-                        <span class="material-icons">article</span>
-                        <h1>Read the 2024 <a href="{% link _posts/2024-01-23-presidents-message.md %}">President's Message</a></h1>
-                    </div>
+                    {% include presidents-message.html %}
 
                     <header>
                         <h1 class="title">
@@ -145,36 +142,7 @@ layout: default
                             <p>Want to see our Board members and President Message? Check out the
                                 <a href="/about/board-members/">Board Member</a> Page</p>
                         </div>
-                        <p>&nbsp;</p>
-
-                        {% comment %}
-                        <!-- most recent Presidents Message -->
-                        <hr class="dotted">
-                        {% for post in site.posts %}
-                        {% if post.tags contains 'presidents-message' %}
-                        <h2>President's Message</h2>
-                        <p>{{ post.date | date: '%B %d, %Y' }}</p>
-                        {{ post.content }}
-                        {% break %}
-                        {% endif %}
-                        {% endfor %}
-                        <!-- /end president's message -->
-                        {% endcomment %}
-
-                        <hr class="dotted">
-
-                        <!--
-<div class="box-note">
-<h2><img src="/images/celebrities/Brian_Jones_150.jpg" alt="Brian Jones 150" width="149" height="161" style="margin: 0px 0px 7px 7px; float: right;" />Comments From Assemblyman:</h2>
-<p>On behalf of Californian 77th Assembly District, I would like to applaud the Friends of the La Mesa Library for your valuable contribution to this community. Your role as a non-profit undoubtedly provides a necessary presence within the region.</p>
-<p><a href="http://arc.asm.ca.gov/member/AD71/" target="_blank">Brian W. Jones</a><br /> Assembly, 77th District<br /><br /></p>
-</div>
--->
                     </div>
-
-
-
-
                 </article>
             </div>
         </div>

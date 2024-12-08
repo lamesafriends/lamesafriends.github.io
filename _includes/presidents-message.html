@@ -1,0 +1,9 @@
+{% for post in site.posts %}
+{% if post.tags contains 'presidents-message' %}
+<div id="announcements">
+    <span class="material-icons">article</span>
+    <h1>Read the {{ post.date | date: '%Y' }} <a href="{{ post.url }}">President's Message</a></h1>
+</div>
+{% break %}
+{% endif %}
+{% endfor %}

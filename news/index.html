@@ -15,7 +15,9 @@ title: News
   <div class="content">
     {% if post.featured-image %}
     <div>
-        <img src="{{ post.featured-image}}" width="400" alt="">
+        <a href="{{ post.url }}">
+          <img src="{{ post.featured-image}}" width="400" alt="">
+        </a>
     </div>
     {% endif %}
     {% if post.fbPostUrl %}
@@ -29,7 +31,7 @@ title: News
 
     {% if post.content %}
     <p>
-      {{ post.excerpt | truncate: 800 | strip_html }} <a href="{{ post.url }}">(Read More)</a>
+      <span class="post-excerpt">{{ post.excerpt | truncate: 800 | strip_html }}</span> <br><a href="{{ post.url }}">(Read More)</a>
     </p>
     {% endif %}
   </div>
