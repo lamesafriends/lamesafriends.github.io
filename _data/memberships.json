@@ -1,0 +1,32 @@
+{
+    "standardBenefits": [
+        "50% discount on all books, DVDs, and CDs for sale in the Friends Bookstore",
+        "Memberships and donations are tax-deductible"
+    ],
+    "options": [
+        {
+            "name": "Individual",
+            "price": "$10.00",
+            "benefits": [],
+            "url": "https://app.joinit.com/o/friends-of-the-la-mesa-library/dfJ7TNPKSvYz9qaxt"
+        },
+        {
+            "name": "Family",
+            "price": "$20.00",
+            "benefits": [],
+            "url": "https://app.joinit.com/o/friends-of-the-la-mesa-library/wHPwyPQE7LPaTmzJH"
+        },
+        {
+            "name": "Sponsor",
+            "price": "$50.00",
+            "benefits": [],
+            "url": "https://app.joinit.com/o/friends-of-the-la-mesa-library/hTNfsQ6TJNeLkiJ8H"
+        },
+        {
+            "name": "Business",
+            "price": "$100.00",
+            "benefits": [],
+            "url": "https://app.joinit.com/o/friends-of-the-la-mesa-library/t2F9hS3ymBxfi92NS"
+        }
+    ]
+}

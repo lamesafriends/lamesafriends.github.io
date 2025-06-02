@@ -50,11 +50,16 @@ body.full-width #maininner {
     padding: 0;
     background: #fff;
 
+    background-image: url('/images/PageDecoration/header.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
     .wrapper {
-        background-image: url('/images/PageDecoration/header.jpg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
+        // background-image: url('/images/PageDecoration/header.jpg');
+        // background-repeat: no-repeat;
+        // background-position: center;
+        // background-size: cover;
         padding: 10px;
         border-bottom: 5px solid $colorPrimary
     }
