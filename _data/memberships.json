@@ -6,25 +6,19 @@
     "options": [
         {
             "name": "Individual",
-            "price": "$10.00",
+            "price": "$10",
             "benefits": [],
             "url": "https://app.joinit.com/o/friends-of-the-la-mesa-library/dfJ7TNPKSvYz9qaxt"
         },
         {
-            "name": "Family",
-            "price": "$20.00",
-            "benefits": [],
-            "url": "https://app.joinit.com/o/friends-of-the-la-mesa-library/wHPwyPQE7LPaTmzJH"
-        },
-        {
             "name": "Sponsor",
-            "price": "$50.00",
+            "price": "$500",
             "benefits": [],
             "url": "https://app.joinit.com/o/friends-of-the-la-mesa-library/hTNfsQ6TJNeLkiJ8H"
         },
         {
             "name": "Business",
-            "price": "$100.00",
+            "price": "$1,000",
             "benefits": [],
             "url": "https://app.joinit.com/o/friends-of-the-la-mesa-library/t2F9hS3ymBxfi92NS"
         }
