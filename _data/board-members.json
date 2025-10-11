@@ -10,10 +10,10 @@
             "bio": "Kirsten Iversen is a strategic leader and lifelong learner who believes access to knowledge should be easy, equitable, and available to everyone. As an avid user of the library’s digital services, she regularly checks out audiobooks and eBooks through the app, appreciating how the library makes it possible to learn and explore without barriers.<br><br>Professionally, Kirsten is a Lean Business Management Consultant with a background in process improvement, customer experience, and systems design. She brings a structured yet people-centered approach to her work and sees her role on the Friends of the Library Board as a way to apply those same principles in service of her local community."
         },
         {
-            "name": "Robin Theilmann",
-            "title": "VP &amp; Bookstore Manager",
-            "image": "robin-theilmann.jpg",
-            "bio": "Robin supports the FOL because of her lifelong connection to libraries, which started at an early age. She recalls: \"I was an early reader. As soon as I could ride my bike to the library by myself back in the early '60s, I would ride to the College Avenue library and check out a bag of books and bring them home to read. As a a young mother in the mid '80s, I took my two little boys to the library every week, and we would check out 10 picture books — always 10 so we knew how many to return the next week. Libraries have been a source of joy and knowledge for me and my family. I enjoy giving back to the La Mesa Library during my retirement years because the library is a source of knowledge and joyful programs for people of all ages.\"\n\nFor those wondering if their FOL memberships make a difference, Robin reminds us that: \"Many library programs are funded by volunteer hours and donations of the volunteers and members of the FOL.\""
+            "name": "Patricia Morris Buckley",
+            "title": "Bookstore Manager",
+            "image": "patricia-morris-buckley.jpg",
+            "bio": ""
         },
         {
             "name": "John Schmitz",
@@ -51,6 +51,11 @@
         }
     ],
     "pastMembers": [
+        {
+            "name": "Robin Theilmann",
+            "title": "VP &amp; Bookstore Manager",
+            "image": "robin-theilmann.jpg"
+        },
         {
             "name": "Bob Thatcher",
             "title": "Treasurer",
