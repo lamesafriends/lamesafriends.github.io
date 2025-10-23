@@ -14,9 +14,21 @@ Thank you to everyone who joined us and continues to support the Friends of the 
 
 Relive the highlights of the evening and enjoy our custom “La Mesa” song created just for this event.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/GUsAECOeNSA?si=3v0fS5qAonVSQFT_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe
+    style="width: 100%; height: auto; aspect-ratio: 560/315;"
+    src="https://www.youtube.com/embed/GUsAECOeNSA?si=3v0fS5qAonVSQFT_"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen></iframe>
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTvPiJ-IzihhA7ZxjA7LKw5TBqeBH4CAYHVxwI7eA0AGRooC1Rz3V6fNARniX2bH5qUOX_mKH078olo/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="800" height="498" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe
+    src="https://docs.google.com/presentation/d/e/2PACX-1vTvPiJ-IzihhA7ZxjA7LKw5TBqeBH4CAYHVxwI7eA0AGRooC1Rz3V6fNARniX2bH5qUOX_mKH078olo/pubembed?start=false&loop=false&delayms=3000"
+    frameborder="0"
+    style="with: 100%; height: auto; aspect-ratio: 800/498;"
+    allowfullscreen="true"
+    mozallowfullscreen="true"
+    webkitallowfullscreen="true"></iframe>
 
 <img src="/images/posts/2025/10/member-event-3.jpg" alt="Board President Kirsten Iversen introduces the three strategic pillars that will shape the Friends of La Mesa Library’s exciting next chapter">
 _Board President Kirsten Iversen introduces the three strategic pillars that will shape the Friends of La Mesa Library’s exciting next chapter_
