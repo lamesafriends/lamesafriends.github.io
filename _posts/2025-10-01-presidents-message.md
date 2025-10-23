@@ -2,7 +2,7 @@
 layout: post
 title: Meet Board President Kirsten Iversen
 date: 2025-10-01 08:22 -0800
-featured-image: "/images/posts/2024/12/john-schmitz.jpg"
+featured-image: "/images/posts/2025/10/kirsten-iversen.jpg"
 tags: presidents-message
 fbPostUrl:
 ---
