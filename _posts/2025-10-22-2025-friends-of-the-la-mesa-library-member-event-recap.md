@@ -25,7 +25,7 @@ Relive the highlights of the evening and enjoy our custom “La Mesa” song cre
 <iframe
     src="https://docs.google.com/presentation/d/e/2PACX-1vTvPiJ-IzihhA7ZxjA7LKw5TBqeBH4CAYHVxwI7eA0AGRooC1Rz3V6fNARniX2bH5qUOX_mKH078olo/pubembed?start=false&loop=false&delayms=3000"
     frameborder="0"
-    style="with: 100%; height: auto; aspect-ratio: 800/498;"
+    style="width: 100%; height: auto; aspect-ratio: 800/498;"
     allowfullscreen="true"
     mozallowfullscreen="true"
     webkitallowfullscreen="true"></iframe>

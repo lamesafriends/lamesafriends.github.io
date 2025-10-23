@@ -7,8 +7,7 @@
 ----------------------------------------------------------------------------------------------------*/
 
 .module,
-#breadcrumbs,
-#content { margin: 15px; }
+#breadcrumbs { margin: 15px; }
 
 #menu .module { margin: 10px 5px; }
 
