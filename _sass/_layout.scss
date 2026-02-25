@@ -1,3 +1,5 @@
+@use 'vars';
+
 body.full-width #sidebar-a { display: none; }
 
 body.full-width #maininner {
@@ -36,7 +38,7 @@ body.full-width #maininner {
     width: 27px;
     height: 15px;
     margin-left: -13px;
-    background: $colorPrimary url(/templates/yoo_nano2/styles/wide/images/totop_scroller.png) 50% 7px no-repeat;
+    background: vars.$colorPrimary url(/templates/yoo_nano2/styles/wide/images/totop_scroller.png) 50% 7px no-repeat;
     box-shadow: 0 -1px 0 rgba(255,255,255,0.05);
     border-radius: 3px;
     text-decoration: none;
@@ -63,7 +65,7 @@ body.full-width #maininner {
         // background-position: center;
         // background-size: cover;
         padding: 10px;
-        border-bottom: 5px solid $colorPrimary
+        border-bottom: 5px solid vars.$colorPrimary
     }
 
     #headerbar h2 {
@@ -74,13 +76,13 @@ body.full-width #maininner {
     .menu-dropdown li.level1:hover .level1,
     .menu-dropdown li.remain .level1,
     .menu-dropdown li.active .level1 {
-        background: $colorPrimary;
+        background: vars.$colorPrimary;
     }
 }
 
 #block-footer {
     padding: 15px 0;
-    background: $colorPrimary;
+    background: vars.$colorPrimary;
 
     a, p { color: #fff; }
 }
@@ -92,10 +94,10 @@ body.full-width #maininner {
     padding: 15px;
 
     color: #fff;
-    background-color: $colorPrimary;
+    background-color: vars.$colorPrimary;
 
     &.danger {
-        background-color: $colorDanger;
+        background-color: vars.$colorDanger;
     }
 
     .material-icons {

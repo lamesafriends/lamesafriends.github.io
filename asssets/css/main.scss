@@ -3,12 +3,12 @@
 # only Main files contain this front matter, not partials.
 ---
 
-@import 'vars';
-@import 'typography';
-@import 'forms';
-@import 'layout';
-@import 'board-members';
-@import 'membership';
+@use 'vars';
+@use 'typography';
+@use 'forms';
+@use 'layout';
+@use 'board-members';
+@use 'membership';
 
 
 
