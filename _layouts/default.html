@@ -13,8 +13,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link href="/images/favicon.png" rel="shortcut icon" type="image/png" />
-    <link rel="stylesheet" href="/cache/widgetkit/widgetkit-bdd7ffdc.css" type="text/css" />
-
     <link rel="apple-touch-icon-precomposed" href="/templates/yoo_nano2/apple_touch_icon.png" />
     <link rel="stylesheet" href="/templates/yoo_nano2/css/base.css" />
     <link rel="stylesheet" href="/templates/yoo_nano2/styles/wide/css/layout.css" />
@@ -54,7 +52,6 @@
         img {
             max-width: 100%;
         }
-        .wk-slideshow .slides > li { position: absolute; text-align: center; }
         .fb-page blockquote {
             padding: 0;
             font-family: sans-serif;
@@ -337,40 +334,35 @@
     </div>
 
 
-    <script src="/media/widgetkit/js/jquery.js" type="text/javascript"></script>
     <script type="text/javascript">
-        (function ($) {
-            $(function () {
-                // highlight current page in nav
-                var path = window.location.pathname;
-                path = path.replace(/\/$/g, '');
+        document.addEventListener('DOMContentLoaded', function () {
+            // highlight current page in nav
+            var path = window.location.pathname.replace(/\/$/, '');
+            var isPost = /^\/\d{4}\/.+/.test(path);
 
-                // test for posts
-                var isPost = /^\/\d{4}\/.+/.test(path);
-
-                $('#menu a').each(function (index, value) {
-                    var href = $(this).attr('href');
-                    if (href == path || (href == '/news' && isPost)) {
-                        $(this).addClass('active current');
-                        $(this).parent('li').addClass('active current');
-                        if ($(this).hasClass('level2')) {
-                            $(this).parents('.level1').addClass('active current');
-                        }
+            document.querySelectorAll('#menu a').forEach(function (link) {
+                var href = link.getAttribute('href');
+                if (href === path || (href === '/news' && isPost)) {
+                    link.classList.add('active', 'current');
+                    link.parentElement.classList.add('active', 'current');
+                    if (link.classList.contains('level2')) {
+                        var parent = link.closest('.level1');
+                        if (parent) parent.classList.add('active', 'current');
                     }
-                });
-
-                // scroll to top of page
-                $('#scroll-to-top').on('click', function (e) {
-                    e.preventDefault();
-                    window.scroll({
-                        top: 0,
-                        left: 0,
-                        behavior: 'smooth'
-                    });
-                });
+                }
             });
-        })(jQuery);
+
+            // scroll to top of page
+            var scrollBtn = document.getElementById('scroll-to-top');
+            if (scrollBtn) {
+                scrollBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+                });
+            }
+        });
     </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="/templates/yoo_nano2/warp/js/warp.js"></script>
     <script src="/templates/yoo_nano2/warp/js/responsive.js"></script>
     <script src="/templates/yoo_nano2/warp/js/accordionmenu.js"></script>
