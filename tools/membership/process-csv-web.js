@@ -76,6 +76,8 @@ function processCSV(data) {
         if (header.toLowerCase().includes('expiration') ||
             header.toLowerCase().includes('expires')) {
             headerMap['Expiration Date'] = index;
+        } else if (header.toLowerCase().includes('rebilling')) {
+            headerMap['Rebilling Date'] = index;
         } else if (header.toLowerCase() === 'status') {
             headerMap['Status'] = index;
         } else {
@@ -93,7 +95,14 @@ function processCSV(data) {
                 lastName: values[headerMap['Last Name']] || '',
                 data: columnOrder.map(column => {
                     if (column === 'Expiration Date') {
-                        return formatExpirationDate(values[headerMap[column]]);
+                        const expVal = values[headerMap['Expiration Date']];
+                        const rebillVal = values[headerMap['Rebilling Date']];
+                        return formatExpirationDate(expVal || rebillVal);
+                    }
+                    if (column === 'Membership Type') {
+                        const type = values[headerMap['Membership Type']] || '';
+                        const isOnline = !!(values[headerMap['Rebilling Date']]);
+                        return isOnline ? `${type} (Online)` : type;
                     }
                     return values[headerMap[column]] || '';
                 }).join(',')
