@@ -10,20 +10,29 @@
             "bio": "Kirsten Iversen is a strategic leader and lifelong learner who believes access to knowledge should be easy, equitable, and available to everyone. As an avid user of the library’s digital services, she regularly checks out audiobooks and eBooks through the app, appreciating how the library makes it possible to learn and explore without barriers.<br><br>Professionally, Kirsten is a Lean Business Management Consultant with a background in process improvement, customer experience, and systems design. She brings a structured yet people-centered approach to her work and sees her role on the Friends of the Library Board as a way to apply those same principles in service of her local community."
         },
         {
-            "name": "John Schmitz",
-            "title": "Treasurer",
-            "image": "john-schmitz.jpg",
-            "bio": "After 14 years as Board President, John recently stepped back into the role of Treasurer. John has tirelessly advocated for a larger, better library for La Mesa. He looks back at his time as president with fondness saying, \"I appreciate so much the members of the La Mesa community. You helped the Friends raise funds to support the library with materials, programs, and improvements.\" John's efforts have seen the nonprofit organization grow into a thriving troupe of volunteers dedicated to supporting library services in the La Mesa community. He has been instrumental in re-launching annual school visits to the La Mesa Civic Center, introducing all 3rd graders to important community services including the library, police and fire stations, city hall, and public works."
-        },
-        {
             "name": "Christina Ly",
-            "title": "Secretary and Publicity & Promotions Co-Chair",
+            "title": "Secretary",
             "image": "christina-ly.jpg",
             "bio": "Christina joined the Friends earlier this year saying: \"Although I grew up in San Diego, I’m relatively new to the La Mesa community, having moved here in 2019. I immediately fell in love with La Mesa’s small-town feel. As a lifelong book lover, I was just starting to seek out volunteer opportunities when I came across an opening with the Friends of the Library. It felt like a perfect opportunity I couldn’t pass up. I’m excited to serve as Secretary and eager to support the Board in any way I can!\""
         },
         {
+            "name": "Michael Fossner",
+            "title": "Treasurer",
+            "image": ""
+        },
+        {
+            "name": "Sheila Dowe",
+            "title": "Bookstore Manager",
+            "image": ""
+        },
+        {
+            "name": "Diane Salamon",
+            "title": "Bookstore Manager",
+            "image": ""
+        },
+        {
             "name": "Leslie Stump",
-            "title": "Publicity & Promotions Co-Chair",
+            "title": "Publicity & Promotions",
             "image": "leslie-stump.jpg",
             "bio": "Leslie joined the Friends earlier this year, and when asked about her connection to libraries she recalled: \"In junior high school, I would do my homework at the library until my mom, who was a teacher, could pick me up. My love of reading extended into college where I majored in English with an emphasis in Journalism at SDSU. When I heard the Friends needed someone to help promote their organization and the La Mesa Library, I jumped at the chance. I love supporting my community and making new connections at various events. In an online world that can be so divisive these days, I appreciate the opportunity to express my creativity, promote the library, and hopefully bring some joy to our social media followers and the greater La Mesa community.\""
         },
@@ -36,7 +45,8 @@
         {
             "name": "Cassie Koldewyn",
             "title": "Library Ex-Officio",
-            "image": ""
+            "image": "cassie-koldewyn.jpg",
+            "bio": "Cassie Koldewyn has served as Branch Manager of the La Mesa Library since 2022, where she leads a dedicated team in serving the community through access to information, welcoming spaces, and enriching events. She began her library career in 2013 and went on to earn her Master of Library and Information Science from the University of Washington after realizing that the career she’d been searching for was waiting at her favorite place – the library. Over the years, Cassie has worked across public, academic, and special libraries, ultimately choosing to focus on public libraries for their dynamic, ever-evolving nature. Serving at the La Mesa Branch has been her favorite role yet. When she’s not at the library, Cassie enjoys walking her dog, Roo, listening to audiobooks, and baking."
         },
         {
             "name": "Misty Thompson",
@@ -45,6 +55,12 @@
         }
     ],
     "pastMembers": [
+        {
+            "name": "John Schmitz",
+            "title": "President & Treasurer",
+            "image": "john-schmitz.jpg",
+            "bio": "After 14 years as Board President, John recently stepped back into the role of Treasurer. John has tirelessly advocated for a larger, better library for La Mesa. He looks back at his time as president with fondness saying, \"I appreciate so much the members of the La Mesa community. You helped the Friends raise funds to support the library with materials, programs, and improvements.\" John's efforts have seen the nonprofit organization grow into a thriving troupe of volunteers dedicated to supporting library services in the La Mesa community. He has been instrumental in re-launching annual school visits to the La Mesa Civic Center, introducing all 3rd graders to important community services including the library, police and fire stations, city hall, and public works."
+        },
         {
             "name": "Robin Theilmann",
             "title": "VP &amp; Bookstore Manager",
