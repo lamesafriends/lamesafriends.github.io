@@ -23,7 +23,7 @@
         {
             "name": "Sheila Dowe",
             "title": "Bookstore Manager",
-            "image": ""
+            "bio": "Although Sheila jokes that she never quite figured out what she wanted to do when she grew up, books have been a common theme throughout her life. She read so much as a kid that her mom suggested she go out and play once in a while! Some of the work Sheila's most proud of includes reading and reviewing books for a catalog for 12 wonderful years and working with other parents to start an annual Book Swap at her sons’ elementary school. After she retired, Sheila gravitated to the Friends Bookstore where she truly enjoys meeting other book lovers in such an inclusive and welcoming space. Her favorite gig so far is working with Diane as Co-Managers of the bookstore. Sheila knows first hand the fabulous, hard-working, fun volunteers who are a joy to work with both in the bookstore and during our recent Barnes & Noble fundraiser. When Sheila's not reading, you can find her puttering in her garden and stocking her Little Free Library with books from the Friends bookstore, naturally!"
         },
         {
             "name": "Diane Salamon",
@@ -51,7 +51,8 @@
         {
             "name": "Misty Thompson",
             "title": "City Ex-Officio",
-            "image": "misty-thompson.jpg"
+            "image": "misty-thompson-2025.jpg",
+            "bio": "Misty Thompson serves as the Director of Parks and Recreation for the City of La Mesa, where she oversees the parks, community events, and diverse programming that bring the city to life. Whether she’s overseeing park improvements or serving as the liaison to the Friends of the Library, Misty’s work is fueled by a genuine love for the \"Jewel of the Hills.\" A lifelong learner at heart, she’s dedicated to creating welcoming spaces where neighbors can connect, stay active, and enjoy the outdoors together."
         }
     ],
     "pastMembers": [
