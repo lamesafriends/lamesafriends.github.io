@@ -1,9 +1,16 @@
 .board-members-ctn {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 
     .board-member {
         display: inline-flex;
         align-items: center;
         gap: 20px;
+
+        @media (max-width: 550px) {
+            flex-direction: column !important;
+        }
     }
 
     .board-member.has-bio {
@@ -17,7 +24,7 @@
             }
     }
 
-    .board-member + .board-member { margin-top: 30px; }
+    // .board-member + .board-member { margin-top: 30px; }
 
     .photo-ctn {
         display: inline-block;
@@ -64,5 +71,5 @@
         }
     }
 
-    .bio { padding-bottom: 68px; }
+    // .bio { padding-bottom: 68px; }
 }
