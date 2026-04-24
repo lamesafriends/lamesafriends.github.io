@@ -3,6 +3,7 @@
         display: flex;
         justify-content: space-between;
     }
+    .bookstore-hours .row.today { font-weight: bold; font-size: 1.1em; }
 </style>
 <div class="content">
     <p>
@@ -39,3 +40,14 @@
     </p>
     <p style="font-size: 11px; margin-bottom: 0;">*Hours subject to change without notice</p>
 </div>
+<script>
+    (function () {
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const today = days[new Date().getDay()];
+        document.querySelectorAll('.bookstore-hours .row').forEach(function (row) {
+            if (row.querySelector('div') && row.querySelector('div').textContent.trim() === today) {
+                row.classList.add('today');
+            }
+        });
+    })();
+</script>

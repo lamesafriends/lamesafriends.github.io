@@ -127,3 +127,13 @@ hr { margin: 20px 0; }
 }
 
 iframe { max-width: 100%; }
+
+// hide locations in main container when not single column
+@media (min-width: 960px) {
+    #maininner .location-hours-ctn { display: none; }
+}
+body.full-width .location-hours-ctn { display: none; }
+
+@media (max-width: 959px) {
+    #sidebar-a .location-hours-ctn { display: none; }
+}

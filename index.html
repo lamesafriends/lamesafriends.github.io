@@ -3,6 +3,25 @@ title: Home
 layout: default
 ---
 
+<div class="module location-hours-ctn">
+
+    <div style="display: flex; justify-content: space-between;">
+        <h3 class="module-title">
+            <span class="material-icons">place</span> Bookstore Location
+        </h3>
+        <div class="content">
+            <p>
+                8074 Allison Ave<br>
+                La Mesa CA 91942
+            </p>
+        </div>
+    </div>
+
+    <h3 class="module-title"><span class="material-icons">watch_later</span> Bookstore Hours</h3>
+
+    {% include bookstore-hours.html %}
+</div>
+
 <section id="content" class="grid-block">
     <div id="system-message-container">
     </div>
