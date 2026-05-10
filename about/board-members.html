@@ -33,7 +33,7 @@ fullwidth: true
                                     alt="{{ member.name }}, {{ member.title }}" />
                                 <div class="photo-label">
                                     <div class="name">{{ member.name }}</div>
-                                    <div class="title">{{ member.title }}</div>
+                                    <div class="title">{{ member.title }}{% if member.startDate %} <span class="tenure" data-start-date="{{ member.startDate }}"></span>{% endif %}</div>
                                 </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@ fullwidth: true
                     <div>We would like to recognize and thank past members of our board:</div>
                     <ul>
                         {% for member in site.data.board-members.pastMembers %}
-                        <li>{{ member.name }}, {{ member.title }}</li>
+                        <li>{{ member.name }}, {{ member.title }}{% if member.startDate %} <span class="tenure" data-start-date="{{ member.startDate }}" data-end-date="{{ member.endDate }}"></span>{% endif %}</li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -64,3 +64,37 @@ fullwidth: true
         </article>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function parseDate(str) {
+            var parts = str.split('-');
+            var year = parseInt(parts[0], 10);
+            var month = parts[1] ? parseInt(parts[1], 10) - 1 : 0;
+            var day = parts[2] ? parseInt(parts[2], 10) : 1;
+            return new Date(year, month, day);
+        }
+
+        var now = new Date();
+        document.querySelectorAll('.tenure').forEach(function (el) {
+            var startDate = parseDate(el.dataset.startDate);
+            var endDate = el.dataset.endDate ? parseDate(el.dataset.endDate) : now;
+            var years = endDate.getFullYear() - startDate.getFullYear();
+            if (endDate.getMonth() < startDate.getMonth() ||
+                (endDate.getMonth() === startDate.getMonth() && endDate.getDate() < startDate.getDate())) {
+                years--;
+            }
+            if (years >= 1) {
+                el.textContent = '(' + years + ' year' + (years > 1 ? 's' : '') + ')';
+            } else {
+                var months = (endDate.getFullYear() - startDate.getFullYear()) * 12 + endDate.getMonth() - startDate.getMonth();
+                if (endDate.getDate() < startDate.getDate()) {
+                    months--;
+                }
+                if (months > 0) {
+                    el.textContent = '(' + months + ' month' + (months > 1 ? 's' : '') + ')';
+                }
+            }
+        });
+    });
+</script>
