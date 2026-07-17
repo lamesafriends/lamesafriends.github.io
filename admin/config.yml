@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: lamesafriends/lamesafriends.github.io
+  branch: master
+
+media_folder: /images/posts
+public_folder: /images/posts
+
+media_libraries:
+  all:
+    transformations:
+      raster_image:
+        format: webp
+        quality: 85
+        width: 2048
+        height: 2048
+    slugify_filename: true
+
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    folder: _posts
+    media_folder: /images/posts/{{year}}/{{month}}
+    public_folder: /images/posts/{{year}}/{{month}}
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: md
+    fields:
+      - { label: Layout, name: layout, widget: hidden, default: post }
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime }
+      - { label: Featured Image, name: featured-image, widget: image, required: false }
+      - { label: Excerpt, name: excerpt, widget: text, required: false, hint: "A short summary shown on the news listing page." }
+      - { label: Tags, name: tags, widget: list, required: false }
+      - { label: Facebook Post URL, name: fbPostUrl, widget: string, required: false }
+      - { label: Body, name: body, widget: markdown, editor_components: [image, pdf-embed] }

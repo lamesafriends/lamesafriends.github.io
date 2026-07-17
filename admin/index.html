@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Sveltia CMS</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+    <script>
+        CMS.registerEditorComponent({
+            id: 'pdf-embed',
+            label: 'PDF Embed',
+            icon: 'picture_as_pdf',
+            fields: [
+                { name: 'file', label: 'PDF File', widget: 'file', accept: 'application/pdf,.pdf' },
+            ],
+            pattern: /<embed src="(?<file>[^"]+)" type="application\/pdf" style="width: 100%; aspect-ratio: 8\.5 \/ 11\.5;">/,
+            toBlock: ({ file }) =>
+                `<embed src="${file}" type="application/pdf" style="width: 100%; aspect-ratio: 8.5 / 11.5;">`,
+            toPreview: ({ file }) =>
+                `<embed src="${file}" type="application/pdf" style="width: 100%; aspect-ratio: 8.5 / 11.5;">`,
+        });
+    </script>
+</body>
+
+</html>

@@ -20,7 +20,7 @@ title: News
         </a>
     </div>
     {% endif %}
-    {% if post.fbPostUrl %}
+    {% if page.fbPostUrl and page.fbPostUrl != "" %}
     <div class="fb-post"
         data-href="{{ post.fbPostUrl }}"
         data-width="500"
