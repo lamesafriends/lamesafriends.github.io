@@ -211,6 +211,7 @@ function collectForm() {
         checkMemo: document.getElementById('checkMemo').value.trim(),
         mailed,
         mailAddress: document.getElementById('mailAddress').value.trim(),
+        treasurerNote: document.getElementById('treasurerNote').value.trim(),
     };
 }
 
@@ -225,7 +226,7 @@ function validate(d) {
         errors.push('Please specify the "Other" budget account.');
     if (!d.checkTo) errors.push('Check Made Out To is required.');
     if (d.mailed === 'Yes' && !d.mailAddress)
-        errors.push('Name and Address is required when the check is mailed.');
+        errors.push('Vendor name and address is required when mailing to a vendor.');
     return errors;
 }
 
@@ -278,12 +279,13 @@ form.addEventListener('submit', async (e) => {
         }
 
         const pdfBytes = await pdfDoc.save();
-        downloadPdf(pdfBytes, makeFileName(data));
+        const fileName = makeFileName(data);
+        downloadPdf(pdfBytes, fileName);
 
         if (skipped.length) {
-            showStatus('error', 'PDF downloaded, but some attachments were skipped:', skipped);
+            showStatus('error', `Downloaded “${fileName}”, but some attachments were skipped:`, skipped);
         } else {
-            showStatus('success', 'Done! Your reimbursement PDF has been downloaded.');
+            showStatus('success', `Done! Downloaded “${fileName}”.`);
         }
     } catch (err) {
         console.error(err);
@@ -327,7 +329,7 @@ async function drawCoverPage(pdfDoc, d) {
     // Logo (Friends of the La Mesa Library)
     const logo = await loadLogo(pdfDoc);
     if (logo) {
-        const logoW = 220;
+        const logoW = 165;
         const logoH = logoW * (logo.height / logo.width);
         page.drawImage(logo, {
             x: (width - logoW) / 2,
@@ -365,15 +367,22 @@ async function drawCoverPage(pdfDoc, d) {
     }
 
     // Mailing section (full width)
-    const mailLabel = 'Should this be mailed?';
-    const mailValue = d.mailed === 'Yes' ? 'Yes' : 'No';
+    const mailLabel = 'How should the check be handled?';
+    const mailValue = d.mailed === 'Yes' ? 'Mail to vendor' : 'Pick up at the library';
     drawFieldBox(page, margin, y, contentW, rowH, mailLabel, mailValue, { font, bold, ink, line });
     y -= rowH + 12;
 
     if (d.mailed === 'Yes') {
         const addrH = 110;
-        drawFieldBox(page, margin, y, contentW, addrH, 'Name and Address', d.mailAddress, { font, bold, ink, line, multiline: true });
+        drawFieldBox(page, margin, y, contentW, addrH, 'Vendor name and address', d.mailAddress, { font, bold, ink, line, multiline: true });
         y -= addrH + 12;
+    }
+
+    // Note to treasurer (only when provided)
+    if (d.treasurerNote) {
+        const noteH = 90;
+        drawFieldBox(page, margin, y, contentW, noteH, 'Note to treasurer', d.treasurerNote, { font, bold, ink, line, multiline: true });
+        y -= noteH + 12;
     }
 
     // Attachments summary footer

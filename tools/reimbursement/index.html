@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
     <title>Reimbursement Request Generator | Friends of the La Mesa Library</title>
     <style>
         * {
@@ -21,7 +23,7 @@
 
         .site-logo {
             display: block;
-            max-width: 320px;
+            max-width: 240px;
             width: 100%;
             height: auto;
             margin: 0 auto 20px;
@@ -307,7 +309,7 @@
 <body>
     <img src="logo.png" alt="Friends of the La Mesa Library" class="site-logo">
     <h1>Reimbursement Request Generator</h1>
-    <p class="subtitle">Fill out the form, attach your receipts, and download a single PDF.</p>
+    <p class="subtitle">Fill out the form, attach your receipts, and download a single PDF to submit to the treasurer.</p>
 
     <form id="reimbForm" novalidate>
         <div class="card">
@@ -337,16 +339,21 @@
             <div class="field">
                 <label>Budget Account <span class="req">*</span></label>
                 <div class="radio-group">
-                    <label><input type="radio" name="budget" value="Children"> Children</label>
-                    <label><input type="radio" name="budget" value="Teens"> Teens</label>
                     <label><input type="radio" name="budget" value="Adults"> Adults</label>
-                    <label><input type="radio" name="budget" value="Collection"> Collection</label>
-                    <label><input type="radio" name="budget" value="Support"> Support</label>
+                    <label><input type="radio" name="budget" value="Bookstore"> Bookstore</label>
+                    <label><input type="radio" name="budget" value="Children"> Children</label>
+                    <label><input type="radio" name="budget" value="Library Support"> Library Support</label>
+                    <label><input type="radio" name="budget" value="Teens"> Teens</label>
                     <label><input type="radio" name="budget" value="Other"> Other</label>
                 </div>
                 <div id="otherAccountWrap" class="hidden">
                     <input type="text" id="otherAccount" name="otherAccount" placeholder="Specify other account">
                 </div>
+            </div>
+
+            <div class="field">
+                <label for="treasurerNote">Note to treasurer <span style="font-weight:normal;color:#777;">(optional)</span></label>
+                <textarea id="treasurerNote" name="treasurerNote"></textarea>
             </div>
         </div>
 
@@ -364,13 +371,13 @@
             </div>
 
             <div class="field">
-                <label>Should this be mailed?</label>
+                <label>How should the check be handled? <span class="req">*</span></label>
                 <div class="radio-group">
-                    <label><input type="radio" name="mailed" value="No" checked> No</label>
-                    <label><input type="radio" name="mailed" value="Yes"> Yes</label>
+                    <label><input type="radio" name="mailed" value="No" checked> Pick up at the library</label>
+                    <label><input type="radio" name="mailed" value="Yes"> Mail to vendor</label>
                 </div>
                 <div id="mailWrap" class="hidden">
-                    <label for="mailAddress" style="margin-top:12px;">Name and Address</label>
+                    <label for="mailAddress" style="margin-top:12px;">Vendor name and address</label>
                     <textarea id="mailAddress" name="mailAddress" placeholder="Name&#10;Street&#10;City, State ZIP"></textarea>
                 </div>
             </div>
