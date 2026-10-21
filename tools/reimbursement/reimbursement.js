@@ -539,7 +539,7 @@ function processImage(file) {
 }
 
 function makeFileName(d) {
-    // Format: YYYY-MM-DD_RequestorLastNameFirstInitial_Recipient_Amount.pdf
+    // Format: YYYY-MM-DD_RequestorFirstInitialLastName_Recipient_Amount.pdf
     const clean = (s) => (s || '').replace(/[^a-z0-9]+/gi, '');
     const when = d.date || new Date().toISOString().slice(0, 10);
     const requestor = nameCode(d.requestedBy) || 'Requestor';
@@ -549,14 +549,14 @@ function makeFileName(d) {
     return `${when}_${requestor}_${recipient}_${amount}.pdf`;
 }
 
-// "Sheila Dowe" => "DoweS"  (last word + first initial of the first word)
+// "Sheila Dowe" => "SDowe"  (first initial of the first word + last word)
 function nameCode(fullName) {
     const parts = (fullName || '').trim().split(/\s+/).filter(Boolean);
     if (parts.length === 0) return '';
     const first = parts[0].replace(/[^a-z0-9]/gi, '');
     const last = parts[parts.length - 1].replace(/[^a-z0-9]/gi, '');
     if (parts.length === 1) return first; // only one name given
-    return last + first.charAt(0).toUpperCase();
+    return first.charAt(0).toUpperCase() + last;
 }
 
 function downloadPdf(bytes, fileName) {
