@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
+    <title>Deposit Tally | Friends of the La Mesa Library</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .site-logo {
+            display: block;
+            max-width: 240px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 28px 24px;
+            margin-bottom: 24px;
+        }
+
+        .card h2 {
+            font-size: 16px;
+            color: #666;
+            margin: 0 0 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        /* ---- Entry form ---- */
+        .slip-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .slip-section h3 {
+            font-size: 14px;
+            margin: 0 0 12px;
+            color: #2e7d32;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 6px;
+        }
+
+        .field {
+            margin-bottom: 14px;
+        }
+
+        .field label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 15px;
+            font-family: inherit;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2196F3;
+            box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.15);
+        }
+
+        .amount-wrap {
+            position: relative;
+        }
+
+        .amount-wrap span {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+            font-size: 15px;
+        }
+
+        .amount-wrap input {
+            padding-left: 26px;
+            text-align: right;
+        }
+
+        .label-field {
+            margin-bottom: 20px;
+            max-width: 320px;
+        }
+
+        .add-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-top: 8px;
+        }
+
+        .add-btn:hover {
+            background-color: #43a047;
+        }
+
+        .slip-subtotal {
+            font-size: 13px;
+            color: #777;
+            margin-top: 6px;
+            text-align: right;
+        }
+
+        /* ---- Master table ---- */
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        th, td {
+            padding: 9px 10px;
+            text-align: right;
+            border-bottom: 1px solid #eee;
+            white-space: nowrap;
+        }
+
+        thead th {
+            position: sticky;
+            top: 0;
+            background-color: #fafafa;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: #666;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .group-head th {
+            text-align: center;
+            color: #2e7d32;
+            background-color: #f1f8f1;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th.lbl, td.lbl {
+            text-align: left;
+        }
+
+        td.lbl {
+            font-weight: 600;
+            color: #444;
+        }
+
+        .book-col {
+            background-color: #fcfdfc;
+        }
+
+        tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .row-total {
+            font-weight: 600;
+            border-left: 2px solid #eee;
+        }
+
+        tfoot td {
+            font-weight: 700;
+            border-top: 2px solid #ccc;
+            background-color: #fafafa;
+            font-size: 15px;
+        }
+
+        .del-btn {
+            border: none;
+            background: none;
+            color: #d32f2f;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 0 4px;
+            line-height: 1;
+        }
+
+        .empty {
+            text-align: center;
+            color: #999;
+            padding: 30px 10px;
+            font-style: italic;
+        }
+
+        /* ---- Summary ---- */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 14px;
+        }
+
+        .summary-tile {
+            background-color: #f7f9f7;
+            border: 1px solid #e3e8e3;
+            border-radius: 10px;
+            padding: 16px;
+        }
+
+        .summary-tile .lab {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: #777;
+            margin-bottom: 6px;
+        }
+
+        .summary-tile .val {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2e7d32;
+        }
+
+        .summary-tile.grand {
+            background-color: #e8f5e9;
+            border-color: #4CAF50;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .btn-secondary {
+            flex: 1;
+            min-width: 140px;
+            padding: 13px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #444;
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f0f0f0;
+        }
+
+        .btn-danger {
+            border-color: #e0a0a0;
+            color: #c62828;
+        }
+
+        .btn-danger:hover {
+            background-color: #fdeaea;
+        }
+
+        .saved-note {
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+            margin-top: 16px;
+        }
+
+        @media (max-width: 640px) {
+            .slip-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.png" alt="Friends of the La Mesa Library" class="site-logo">
+    <h1>Deposit Tally</h1>
+    <p class="subtitle">Enter each shift slip, hit Add, and the totals build automatically. Your work is saved in this browser.</p>
+
+    <form id="slipForm" class="card" autocomplete="off">
+        <h2>Add a Slip</h2>
+
+        <div class="slip-grid">
+            <div class="slip-section">
+                <h3>Book Sales</h3>
+                <div class="field">
+                    <label for="bookCash">Cash</label>
+                    <div class="amount-wrap"><span>$</span>
+                        <input type="number" id="bookCash" step="0.01" min="0" inputmode="decimal" placeholder="0.00"></div>
+                </div>
+                <div class="field">
+                    <label for="bookVenmo">Venmo</label>
+                    <div class="amount-wrap"><span>$</span>
+                        <input type="number" id="bookVenmo" step="0.01" min="0" inputmode="decimal" placeholder="0.00"></div>
+                </div>
+                <div class="field">
+                    <label for="bookPaypal">PayPal</label>
+                    <div class="amount-wrap"><span>$</span>
+                        <input type="number" id="bookPaypal" step="0.01" min="0" inputmode="decimal" placeholder="0.00"></div>
+                </div>
+            </div>
+
+            <div class="slip-section">
+                <h3>Memberships</h3>
+                <div class="field">
+                    <label for="memCash">Cash</label>
+                    <div class="amount-wrap"><span>$</span>
+                        <input type="number" id="memCash" step="0.01" min="0" inputmode="decimal" placeholder="0.00"></div>
+                </div>
+                <div class="field">
+                    <label for="memVenmo">Venmo</label>
+                    <div class="amount-wrap"><span>$</span>
+                        <input type="number" id="memVenmo" step="0.01" min="0" inputmode="decimal" placeholder="0.00"></div>
+                </div>
+                <div class="field">
+                    <label for="memPaypal">PayPal</label>
+                    <div class="amount-wrap"><span>$</span>
+                        <input type="number" id="memPaypal" step="0.01" min="0" inputmode="decimal" placeholder="0.00"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slip-subtotal" id="formSubtotal"></div>
+        <button type="submit" class="add-btn">+ Add Slip</button>
+    </form>
+
+    <div class="card">
+        <h2>Master Tally</h2>
+        <div class="table-wrap">
+            <table id="masterTable">
+                <thead>
+                    <tr class="group-head">
+                        <th class="lbl" rowspan="2">#</th>
+                        <th colspan="3">Book Sales</th>
+                        <th colspan="3">Memberships</th>
+                        <th rowspan="2" class="row-total">Slip Total</th>
+                        <th rowspan="2"></th>
+                    </tr>
+                    <tr>
+                        <th class="book-col">Cash</th>
+                        <th class="book-col">Venmo</th>
+                        <th class="book-col">PayPal</th>
+                        <th>Cash</th>
+                        <th>Venmo</th>
+                        <th>PayPal</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+                <tfoot>
+                    <tr id="totalsRow">
+                        <td class="lbl">Totals</td>
+                        <td class="book-col" id="tBookCash">$0.00</td>
+                        <td class="book-col" id="tBookVenmo">$0.00</td>
+                        <td class="book-col" id="tBookPaypal">$0.00</td>
+                        <td id="tMemCash">$0.00</td>
+                        <td id="tMemVenmo">$0.00</td>
+                        <td id="tMemPaypal">$0.00</td>
+                        <td class="row-total" id="tGrand">$0.00</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Deposit Summary</h2>
+        <div class="summary-grid">
+            <div class="summary-tile"><div class="lab">Total Book Sales</div><div class="val" id="sBook">$0.00</div></div>
+            <div class="summary-tile"><div class="lab">Total Memberships</div><div class="val" id="sMem">$0.00</div></div>
+            <div class="summary-tile"><div class="lab">Total Cash</div><div class="val" id="sCash">$0.00</div></div>
+            <div class="summary-tile"><div class="lab">Total Venmo</div><div class="val" id="sVenmo">$0.00</div></div>
+            <div class="summary-tile"><div class="lab">Total PayPal</div><div class="val" id="sPaypal">$0.00</div></div>
+            <div class="summary-tile grand"><div class="lab">Grand Total</div><div class="val" id="sGrand">$0.00</div></div>
+        </div>
+
+        <div class="actions" style="margin-top:22px;">
+            <button type="button" class="btn-secondary" id="copyBtn">Copy summary</button>
+            <button type="button" class="btn-secondary btn-danger" id="resetBtn">Reset all</button>
+        </div>
+        <p class="saved-note" id="savedNote"></p>
+    </div>
+
+    <script>
+        var STORAGE_KEY = 'folml-deposit-tally-v1';
+        var FIELDS = ['bookCash', 'bookVenmo', 'bookPaypal', 'memCash', 'memVenmo', 'memPaypal'];
+
+        var slips = [];
+
+        // ---- persistence ----
+        function load() {
+            try {
+                var raw = localStorage.getItem(STORAGE_KEY);
+                if (raw) slips = JSON.parse(raw) || [];
+            } catch (e) {
+                slips = [];
+            }
+        }
+
+        function save() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(slips));
+            } catch (e) { /* storage unavailable */ }
+        }
+
+        // ---- helpers ----
+        function money(n) {
+            return '$' + (Number(n) || 0).toLocaleString('en-US', {
+                minimumFractionDigits: 2, maximumFractionDigits: 2
+            });
+        }
+
+        function num(id) {
+            var v = parseFloat(document.getElementById(id).value);
+            return isNaN(v) || v < 0 ? 0 : v;
+        }
+
+        function slipTotal(s) {
+            var t = 0;
+            FIELDS.forEach(function (f) { t += Number(s[f]) || 0; });
+            return t;
+        }
+
+        // ---- rendering ----
+        function render() {
+            var body = document.getElementById('tableBody');
+            body.innerHTML = '';
+
+            var totals = { bookCash: 0, bookVenmo: 0, bookPaypal: 0, memCash: 0, memVenmo: 0, memPaypal: 0 };
+
+            if (slips.length === 0) {
+                var tr = document.createElement('tr');
+                tr.innerHTML = '<td class="empty" colspan="9">No slips yet &mdash; add one above.</td>';
+                body.appendChild(tr);
+            }
+
+            slips.forEach(function (s, i) {
+                FIELDS.forEach(function (f) { totals[f] += Number(s[f]) || 0; });
+
+                var tr = document.createElement('tr');
+                var cells = '<td class="lbl">' + (i + 1) + '</td>' +
+                    '<td class="book-col">' + money(s.bookCash) + '</td>' +
+                    '<td class="book-col">' + money(s.bookVenmo) + '</td>' +
+                    '<td class="book-col">' + money(s.bookPaypal) + '</td>' +
+                    '<td>' + money(s.memCash) + '</td>' +
+                    '<td>' + money(s.memVenmo) + '</td>' +
+                    '<td>' + money(s.memPaypal) + '</td>' +
+                    '<td class="row-total">' + money(slipTotal(s)) + '</td>' +
+                    '<td><button type="button" class="del-btn" data-i="' + i + '" title="Remove slip">&times;</button></td>';
+                tr.innerHTML = cells;
+                body.appendChild(tr);
+            });
+
+            document.getElementById('tBookCash').textContent = money(totals.bookCash);
+            document.getElementById('tBookVenmo').textContent = money(totals.bookVenmo);
+            document.getElementById('tBookPaypal').textContent = money(totals.bookPaypal);
+            document.getElementById('tMemCash').textContent = money(totals.memCash);
+            document.getElementById('tMemVenmo').textContent = money(totals.memVenmo);
+            document.getElementById('tMemPaypal').textContent = money(totals.memPaypal);
+
+            var book = totals.bookCash + totals.bookVenmo + totals.bookPaypal;
+            var mem = totals.memCash + totals.memVenmo + totals.memPaypal;
+            var cash = totals.bookCash + totals.memCash;
+            var venmo = totals.bookVenmo + totals.memVenmo;
+            var paypal = totals.bookPaypal + totals.memPaypal;
+            var grand = book + mem;
+
+            document.getElementById('tGrand').textContent = money(grand);
+            document.getElementById('sBook').textContent = money(book);
+            document.getElementById('sMem').textContent = money(mem);
+            document.getElementById('sCash').textContent = money(cash);
+            document.getElementById('sVenmo').textContent = money(venmo);
+            document.getElementById('sPaypal').textContent = money(paypal);
+            document.getElementById('sGrand').textContent = money(grand);
+
+            var note = document.getElementById('savedNote');
+            note.textContent = slips.length
+                ? slips.length + ' slip' + (slips.length === 1 ? '' : 's') + ' saved in this browser.'
+                : '';
+        }
+
+        function escapeHtml(str) {
+            return String(str).replace(/[&<>"']/g, function (c) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+            });
+        }
+
+        function updateFormSubtotal() {
+            var t = 0;
+            FIELDS.forEach(function (f) { t += num(f); });
+            var el = document.getElementById('formSubtotal');
+            el.textContent = t > 0 ? 'Slip total: ' + money(t) : '';
+        }
+
+        // ---- events ----
+        document.getElementById('slipForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var slip = {};
+            var any = false;
+            FIELDS.forEach(function (f) {
+                slip[f] = num(f);
+                if (slip[f] > 0) any = true;
+            });
+            if (!any) return; // nothing entered
+
+            slips.push(slip);
+            save();
+            render();
+
+            this.reset();
+            updateFormSubtotal();
+            document.getElementById('bookCash').focus();
+        });
+
+        document.getElementById('tableBody').addEventListener('click', function (e) {
+            var btn = e.target.closest('.del-btn');
+            if (!btn) return;
+            var i = parseInt(btn.getAttribute('data-i'), 10);
+            slips.splice(i, 1);
+            save();
+            render();
+        });
+
+        FIELDS.forEach(function (f) {
+            document.getElementById(f).addEventListener('input', updateFormSubtotal);
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', function () {
+            if (slips.length === 0) return;
+            if (!confirm('Clear all ' + slips.length + ' slip(s)? This cannot be undone.')) return;
+            slips = [];
+            save();
+            render();
+        });
+
+        document.getElementById('copyBtn').addEventListener('click', function () {
+            var lines = [
+                'Deposit Summary',
+                'Total Book Sales: ' + document.getElementById('sBook').textContent,
+                'Total Memberships: ' + document.getElementById('sMem').textContent,
+                'Total Cash: ' + document.getElementById('sCash').textContent,
+                'Total Venmo: ' + document.getElementById('sVenmo').textContent,
+                'Total PayPal: ' + document.getElementById('sPaypal').textContent,
+                'Grand Total: ' + document.getElementById('sGrand').textContent
+            ];
+            var btn = this;
+            navigator.clipboard.writeText(lines.join('\n')).then(function () {
+                var orig = btn.textContent;
+                btn.textContent = 'Copied!';
+                setTimeout(function () { btn.textContent = orig; }, 1500);
+            }).catch(function () {
+                alert(lines.join('\n'));
+            });
+        });
+
+        // ---- init ----
+        load();
+        render();
+    </script>
+</body>
+</html>
