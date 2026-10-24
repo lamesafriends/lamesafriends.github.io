@@ -61,7 +61,7 @@
         /* ---- Entry form ---- */
         .slip-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
         }
 
@@ -361,6 +361,25 @@
                         <input type="number" id="memPaypal" step="0.01" min="0" inputmode="decimal" placeholder="0.00"></div>
                 </div>
             </div>
+
+            <div class="slip-section">
+                <h3>Donations</h3>
+                <div class="field">
+                    <label for="donCash">Cash</label>
+                    <div class="amount-wrap"><span>$</span>
+                        <input type="number" id="donCash" step="0.01" min="0" inputmode="decimal" placeholder="0.00"></div>
+                </div>
+                <div class="field">
+                    <label for="donVenmo">Venmo</label>
+                    <div class="amount-wrap"><span>$</span>
+                        <input type="number" id="donVenmo" step="0.01" min="0" inputmode="decimal" placeholder="0.00"></div>
+                </div>
+                <div class="field">
+                    <label for="donPaypal">PayPal</label>
+                    <div class="amount-wrap"><span>$</span>
+                        <input type="number" id="donPaypal" step="0.01" min="0" inputmode="decimal" placeholder="0.00"></div>
+                </div>
+            </div>
         </div>
 
         <div class="slip-subtotal" id="formSubtotal"></div>
@@ -376,6 +395,7 @@
                         <th class="lbl" rowspan="2">#</th>
                         <th colspan="3">Book Sales</th>
                         <th colspan="3">Memberships</th>
+                        <th colspan="3">Donations</th>
                         <th rowspan="2" class="row-total">Slip Total</th>
                         <th rowspan="2"></th>
                     </tr>
@@ -386,6 +406,9 @@
                         <th>Cash</th>
                         <th>Venmo</th>
                         <th>PayPal</th>
+                        <th class="book-col">Cash</th>
+                        <th class="book-col">Venmo</th>
+                        <th class="book-col">PayPal</th>
                     </tr>
                 </thead>
                 <tbody id="tableBody"></tbody>
@@ -398,6 +421,9 @@
                         <td id="tMemCash">$0.00</td>
                         <td id="tMemVenmo">$0.00</td>
                         <td id="tMemPaypal">$0.00</td>
+                        <td class="book-col" id="tDonCash">$0.00</td>
+                        <td class="book-col" id="tDonVenmo">$0.00</td>
+                        <td class="book-col" id="tDonPaypal">$0.00</td>
                         <td class="row-total" id="tGrand">$0.00</td>
                         <td></td>
                     </tr>
@@ -411,6 +437,7 @@
         <div class="summary-grid">
             <div class="summary-tile"><div class="lab">Total Book Sales</div><div class="val" id="sBook">$0.00</div></div>
             <div class="summary-tile"><div class="lab">Total Memberships</div><div class="val" id="sMem">$0.00</div></div>
+            <div class="summary-tile"><div class="lab">Total Donations</div><div class="val" id="sDon">$0.00</div></div>
             <div class="summary-tile"><div class="lab">Total Cash</div><div class="val" id="sCash">$0.00</div></div>
             <div class="summary-tile"><div class="lab">Total Venmo</div><div class="val" id="sVenmo">$0.00</div></div>
             <div class="summary-tile"><div class="lab">Total PayPal</div><div class="val" id="sPaypal">$0.00</div></div>
@@ -426,7 +453,7 @@
 
     <script>
         var STORAGE_KEY = 'folml-deposit-tally-v1';
-        var FIELDS = ['bookCash', 'bookVenmo', 'bookPaypal', 'memCash', 'memVenmo', 'memPaypal'];
+        var FIELDS = ['bookCash', 'bookVenmo', 'bookPaypal', 'memCash', 'memVenmo', 'memPaypal', 'donCash', 'donVenmo', 'donPaypal'];
 
         var slips = [];
 
@@ -469,11 +496,11 @@
             var body = document.getElementById('tableBody');
             body.innerHTML = '';
 
-            var totals = { bookCash: 0, bookVenmo: 0, bookPaypal: 0, memCash: 0, memVenmo: 0, memPaypal: 0 };
+            var totals = { bookCash: 0, bookVenmo: 0, bookPaypal: 0, memCash: 0, memVenmo: 0, memPaypal: 0, donCash: 0, donVenmo: 0, donPaypal: 0 };
 
             if (slips.length === 0) {
                 var tr = document.createElement('tr');
-                tr.innerHTML = '<td class="empty" colspan="9">No slips yet &mdash; add one above.</td>';
+                tr.innerHTML = '<td class="empty" colspan="12">No slips yet &mdash; add one above.</td>';
                 body.appendChild(tr);
             }
 
@@ -488,6 +515,9 @@
                     '<td>' + money(s.memCash) + '</td>' +
                     '<td>' + money(s.memVenmo) + '</td>' +
                     '<td>' + money(s.memPaypal) + '</td>' +
+                    '<td class="book-col">' + money(s.donCash) + '</td>' +
+                    '<td class="book-col">' + money(s.donVenmo) + '</td>' +
+                    '<td class="book-col">' + money(s.donPaypal) + '</td>' +
                     '<td class="row-total">' + money(slipTotal(s)) + '</td>' +
                     '<td><button type="button" class="del-btn" data-i="' + i + '" title="Remove slip">&times;</button></td>';
                 tr.innerHTML = cells;
@@ -500,17 +530,22 @@
             document.getElementById('tMemCash').textContent = money(totals.memCash);
             document.getElementById('tMemVenmo').textContent = money(totals.memVenmo);
             document.getElementById('tMemPaypal').textContent = money(totals.memPaypal);
+            document.getElementById('tDonCash').textContent = money(totals.donCash);
+            document.getElementById('tDonVenmo').textContent = money(totals.donVenmo);
+            document.getElementById('tDonPaypal').textContent = money(totals.donPaypal);
 
             var book = totals.bookCash + totals.bookVenmo + totals.bookPaypal;
             var mem = totals.memCash + totals.memVenmo + totals.memPaypal;
-            var cash = totals.bookCash + totals.memCash;
-            var venmo = totals.bookVenmo + totals.memVenmo;
-            var paypal = totals.bookPaypal + totals.memPaypal;
-            var grand = book + mem;
+            var don = totals.donCash + totals.donVenmo + totals.donPaypal;
+            var cash = totals.bookCash + totals.memCash + totals.donCash;
+            var venmo = totals.bookVenmo + totals.memVenmo + totals.donVenmo;
+            var paypal = totals.bookPaypal + totals.memPaypal + totals.donPaypal;
+            var grand = book + mem + don;
 
             document.getElementById('tGrand').textContent = money(grand);
             document.getElementById('sBook').textContent = money(book);
             document.getElementById('sMem').textContent = money(mem);
+            document.getElementById('sDon').textContent = money(don);
             document.getElementById('sCash').textContent = money(cash);
             document.getElementById('sVenmo').textContent = money(venmo);
             document.getElementById('sPaypal').textContent = money(paypal);
@@ -581,6 +616,7 @@
                 'Deposit Summary',
                 'Total Book Sales: ' + document.getElementById('sBook').textContent,
                 'Total Memberships: ' + document.getElementById('sMem').textContent,
+                'Total Donations: ' + document.getElementById('sDon').textContent,
                 'Total Cash: ' + document.getElementById('sCash').textContent,
                 'Total Venmo: ' + document.getElementById('sVenmo').textContent,
                 'Total PayPal: ' + document.getElementById('sPaypal').textContent,
