@@ -86,7 +86,8 @@
         }
 
         input[type="text"],
-        input[type="number"] {
+        input[type="number"],
+        select {
             width: 100%;
             padding: 10px 12px;
             font-size: 15px;
@@ -97,10 +98,31 @@
             color: #333;
         }
 
-        input:focus {
+        input:focus,
+        select:focus {
             outline: none;
             border-color: #2196F3;
             box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.15);
+        }
+
+        /* Hide placeholder until the field is focused */
+        input::placeholder {
+            color: transparent;
+        }
+
+        input:focus::placeholder {
+            color: #bbb;
+        }
+
+        /* Highlight fields that hold a positive value */
+        input.has-value {
+            border-color: #4CAF50;
+            background-color: #f1f8f1;
+        }
+
+        input.has-value:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
         }
 
         .amount-wrap {
@@ -320,6 +342,27 @@
     <h1>Deposit Tally</h1>
     <p class="subtitle">Enter each shift slip, hit Add, and the totals build automatically. Your work is saved in this browser.</p>
 
+    <div class="card">
+        <h2>Deposit Month</h2>
+        <div class="field label-field" style="margin-bottom:0;">
+            <label for="monthSelect">Month this deposit is for</label>
+            <select id="monthSelect">
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+        </div>
+    </div>
+
     <form id="slipForm" class="card" autocomplete="off">
         <h2>Add a Slip</h2>
 
@@ -446,16 +489,22 @@
 
         <div class="actions" style="margin-top:22px;">
             <button type="button" class="btn-secondary" id="copyBtn">Copy summary</button>
+            <button type="button" class="btn-secondary" id="pdfBtn">Download PDF</button>
             <button type="button" class="btn-secondary btn-danger" id="resetBtn">Reset all</button>
         </div>
         <p class="saved-note" id="savedNote"></p>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
     <script>
         var STORAGE_KEY = 'folml-deposit-tally-v1';
+        var MONTH_KEY = 'folml-deposit-month-v1';
+        var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'];
         var FIELDS = ['bookCash', 'bookVenmo', 'bookPaypal', 'memCash', 'memVenmo', 'memPaypal', 'donCash', 'donVenmo', 'donPaypal'];
 
         var slips = [];
+        var monthSelect = document.getElementById('monthSelect');
 
         // ---- persistence ----
         function load() {
@@ -465,6 +514,11 @@
             } catch (e) {
                 slips = [];
             }
+            // Month: use the saved value if valid, otherwise default to the current month.
+            var saved = null;
+            try { saved = localStorage.getItem(MONTH_KEY); } catch (e) { /* ignore */ }
+            monthSelect.value = (saved && MONTHS.indexOf(saved) !== -1) ? saved : MONTHS[new Date().getMonth()];
+            saveMonth();
         }
 
         function save() {
@@ -472,6 +526,14 @@
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(slips));
             } catch (e) { /* storage unavailable */ }
         }
+
+        function saveMonth() {
+            try {
+                localStorage.setItem(MONTH_KEY, monthSelect.value);
+            } catch (e) { /* storage unavailable */ }
+        }
+
+        monthSelect.addEventListener('change', saveMonth);
 
         // ---- helpers ----
         function money(n) {
@@ -491,12 +553,26 @@
             return t;
         }
 
+        // Sum every field across all slips, plus the category/payment/grand roll-ups.
+        function computeTotals() {
+            var t = { bookCash: 0, bookVenmo: 0, bookPaypal: 0, memCash: 0, memVenmo: 0, memPaypal: 0, donCash: 0, donVenmo: 0, donPaypal: 0 };
+            slips.forEach(function (s) {
+                FIELDS.forEach(function (f) { t[f] += Number(s[f]) || 0; });
+            });
+            t.book = t.bookCash + t.bookVenmo + t.bookPaypal;
+            t.mem = t.memCash + t.memVenmo + t.memPaypal;
+            t.don = t.donCash + t.donVenmo + t.donPaypal;
+            t.cash = t.bookCash + t.memCash + t.donCash;
+            t.venmo = t.bookVenmo + t.memVenmo + t.donVenmo;
+            t.paypal = t.bookPaypal + t.memPaypal + t.donPaypal;
+            t.grand = t.book + t.mem + t.don;
+            return t;
+        }
+
         // ---- rendering ----
         function render() {
             var body = document.getElementById('tableBody');
             body.innerHTML = '';
-
-            var totals = { bookCash: 0, bookVenmo: 0, bookPaypal: 0, memCash: 0, memVenmo: 0, memPaypal: 0, donCash: 0, donVenmo: 0, donPaypal: 0 };
 
             if (slips.length === 0) {
                 var tr = document.createElement('tr');
@@ -505,8 +581,6 @@
             }
 
             slips.forEach(function (s, i) {
-                FIELDS.forEach(function (f) { totals[f] += Number(s[f]) || 0; });
-
                 var tr = document.createElement('tr');
                 var cells = '<td class="lbl">' + (i + 1) + '</td>' +
                     '<td class="book-col">' + money(s.bookCash) + '</td>' +
@@ -524,6 +598,7 @@
                 body.appendChild(tr);
             });
 
+            var totals = computeTotals();
             document.getElementById('tBookCash').textContent = money(totals.bookCash);
             document.getElementById('tBookVenmo').textContent = money(totals.bookVenmo);
             document.getElementById('tBookPaypal').textContent = money(totals.bookPaypal);
@@ -534,22 +609,14 @@
             document.getElementById('tDonVenmo').textContent = money(totals.donVenmo);
             document.getElementById('tDonPaypal').textContent = money(totals.donPaypal);
 
-            var book = totals.bookCash + totals.bookVenmo + totals.bookPaypal;
-            var mem = totals.memCash + totals.memVenmo + totals.memPaypal;
-            var don = totals.donCash + totals.donVenmo + totals.donPaypal;
-            var cash = totals.bookCash + totals.memCash + totals.donCash;
-            var venmo = totals.bookVenmo + totals.memVenmo + totals.donVenmo;
-            var paypal = totals.bookPaypal + totals.memPaypal + totals.donPaypal;
-            var grand = book + mem + don;
-
-            document.getElementById('tGrand').textContent = money(grand);
-            document.getElementById('sBook').textContent = money(book);
-            document.getElementById('sMem').textContent = money(mem);
-            document.getElementById('sDon').textContent = money(don);
-            document.getElementById('sCash').textContent = money(cash);
-            document.getElementById('sVenmo').textContent = money(venmo);
-            document.getElementById('sPaypal').textContent = money(paypal);
-            document.getElementById('sGrand').textContent = money(grand);
+            document.getElementById('tGrand').textContent = money(totals.grand);
+            document.getElementById('sBook').textContent = money(totals.book);
+            document.getElementById('sMem').textContent = money(totals.mem);
+            document.getElementById('sDon').textContent = money(totals.don);
+            document.getElementById('sCash').textContent = money(totals.cash);
+            document.getElementById('sVenmo').textContent = money(totals.venmo);
+            document.getElementById('sPaypal').textContent = money(totals.paypal);
+            document.getElementById('sGrand').textContent = money(totals.grand);
 
             var note = document.getElementById('savedNote');
             note.textContent = slips.length
@@ -565,7 +632,11 @@
 
         function updateFormSubtotal() {
             var t = 0;
-            FIELDS.forEach(function (f) { t += num(f); });
+            FIELDS.forEach(function (f) {
+                var v = num(f);
+                t += v;
+                document.getElementById(f).classList.toggle('has-value', v > 0);
+            });
             var el = document.getElementById('formSubtotal');
             el.textContent = t > 0 ? 'Slip total: ' + money(t) : '';
         }
@@ -611,26 +682,267 @@
             render();
         });
 
+        function summaryText() {
+            var t = computeTotals();
+            return [
+                'Deposit Tally — ' + monthSelect.value,
+                'Generated: ' + new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+                'Slips: ' + slips.length,
+                '',
+                'Book Sales',
+                '  Cash:   ' + money(t.bookCash),
+                '  Venmo:  ' + money(t.bookVenmo),
+                '  PayPal: ' + money(t.bookPaypal),
+                '  Total:  ' + money(t.book),
+                '',
+                'Memberships',
+                '  Cash:   ' + money(t.memCash),
+                '  Venmo:  ' + money(t.memVenmo),
+                '  PayPal: ' + money(t.memPaypal),
+                '  Total:  ' + money(t.mem),
+                '',
+                'Donations',
+                '  Cash:   ' + money(t.donCash),
+                '  Venmo:  ' + money(t.donVenmo),
+                '  PayPal: ' + money(t.donPaypal),
+                '  Total:  ' + money(t.don),
+                '',
+                'Totals by payment type',
+                '  Cash:   ' + money(t.cash),
+                '  Venmo:  ' + money(t.venmo),
+                '  PayPal: ' + money(t.paypal),
+                '',
+                'Grand Total: ' + money(t.grand)
+            ].join('\n');
+        }
+
         document.getElementById('copyBtn').addEventListener('click', function () {
-            var lines = [
-                'Deposit Summary',
-                'Total Book Sales: ' + document.getElementById('sBook').textContent,
-                'Total Memberships: ' + document.getElementById('sMem').textContent,
-                'Total Donations: ' + document.getElementById('sDon').textContent,
-                'Total Cash: ' + document.getElementById('sCash').textContent,
-                'Total Venmo: ' + document.getElementById('sVenmo').textContent,
-                'Total PayPal: ' + document.getElementById('sPaypal').textContent,
-                'Grand Total: ' + document.getElementById('sGrand').textContent
-            ];
+            var text = summaryText();
             var btn = this;
-            navigator.clipboard.writeText(lines.join('\n')).then(function () {
+            navigator.clipboard.writeText(text).then(function () {
                 var orig = btn.textContent;
                 btn.textContent = 'Copied!';
                 setTimeout(function () { btn.textContent = orig; }, 1500);
             }).catch(function () {
-                alert(lines.join('\n'));
+                alert(text);
             });
         });
+
+        // ---- PDF export ----
+        var pdfLibReady = typeof PDFLib !== 'undefined';
+        var pdfBtn = document.getElementById('pdfBtn');
+        if (!pdfLibReady) {
+            pdfBtn.disabled = true;
+            pdfBtn.title = 'PDF library could not be loaded';
+        }
+
+        // Column layout for the tally table drawn into the PDF (landscape Letter).
+        var PDF_COLS = [
+            { label: '#', key: 'idx', w: 26, align: 'left' },
+            { label: 'Cash', key: 'bookCash', w: 68, group: 'Book Sales' },
+            { label: 'Venmo', key: 'bookVenmo', w: 68, group: 'Book Sales' },
+            { label: 'PayPal', key: 'bookPaypal', w: 68, group: 'Book Sales' },
+            { label: 'Cash', key: 'memCash', w: 68, group: 'Memberships' },
+            { label: 'Venmo', key: 'memVenmo', w: 68, group: 'Memberships' },
+            { label: 'PayPal', key: 'memPaypal', w: 68, group: 'Memberships' },
+            { label: 'Cash', key: 'donCash', w: 68, group: 'Donations' },
+            { label: 'Venmo', key: 'donVenmo', w: 68, group: 'Donations' },
+            { label: 'PayPal', key: 'donPaypal', w: 68, group: 'Donations' },
+            { label: 'Slip Total', key: 'total', w: 82, align: 'right' }
+        ];
+
+        var logoBytesCache = null;
+        function loadLogo(pdfDoc) {
+            return Promise.resolve().then(function () {
+                if (logoBytesCache) return logoBytesCache;
+                return fetch('logo.png').then(function (r) {
+                    if (!r.ok) throw new Error('logo fetch failed');
+                    return r.arrayBuffer();
+                }).then(function (b) { logoBytesCache = b; return b; });
+            }).then(function (b) {
+                return pdfDoc.embedPng(b);
+            }).catch(function (e) {
+                console.warn('Logo not embedded:', e);
+                return null;
+            });
+        }
+
+        document.getElementById('pdfBtn').addEventListener('click', function () {
+            if (!pdfLibReady) { alert('The PDF library could not be loaded. Please reload the page.'); return; }
+            var btn = this;
+            btn.disabled = true;
+            var orig = btn.textContent;
+            btn.textContent = 'Building…';
+            buildPdf().catch(function (err) {
+                console.error(err);
+                alert('Sorry, the PDF could not be generated: ' + (err.message || err));
+            }).then(function () {
+                btn.disabled = false;
+                btn.textContent = orig;
+            });
+        });
+
+        function buildPdf() {
+            var PDFDocument = PDFLib.PDFDocument, StandardFonts = PDFLib.StandardFonts, rgb = PDFLib.rgb;
+            var ink = rgb(0.15, 0.15, 0.15);
+            var muted = rgb(0.5, 0.5, 0.5);
+            var line = rgb(0.75, 0.75, 0.75);
+            var green = rgb(0.18, 0.49, 0.2);
+
+            var totals = computeTotals();
+            var doc, font, bold;
+
+            return PDFDocument.create().then(function (d) {
+                doc = d;
+                return doc.embedFont(StandardFonts.Helvetica);
+            }).then(function (f) {
+                font = f;
+                return doc.embedFont(StandardFonts.HelveticaBold);
+            }).then(function (b) {
+                bold = b;
+                return loadLogo(doc);
+            }).then(function (logo) {
+                var PW = 792, PH = 612, margin = 36;
+                var contentW = 0;
+                PDF_COLS.forEach(function (c) { contentW += c.w; });
+                var startX = margin;
+
+                var page, y;
+
+                function drawRight(text, xRight, yy, size, fnt, color) {
+                    var w = fnt.widthOfTextAtSize(text, size);
+                    page.drawText(text, { x: xRight - w, y: yy, size: size, font: fnt, color: color });
+                }
+                function drawCenter(text, xCenter, yy, size, fnt, color) {
+                    var w = fnt.widthOfTextAtSize(text, size);
+                    page.drawText(text, { x: xCenter - w / 2, y: yy, size: size, font: fnt, color: color });
+                }
+
+                function newPage(withHeader) {
+                    page = doc.addPage([PW, PH]);
+                    y = PH - margin;
+                    if (withHeader && logo) {
+                        var logoW = 120, logoH = logoW * (logo.height / logo.width);
+                        page.drawImage(logo, { x: startX, y: y - logoH, width: logoW, height: logoH });
+                        page.drawText('Deposit Tally — ' + monthSelect.value, { x: startX + logoW + 16, y: y - logoH / 2 - 4, size: 20, font: bold, color: ink });
+                        var dateStr = 'Generated: ' + new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                        page.drawText(dateStr, { x: startX + logoW + 16, y: y - logoH / 2 - 20, size: 11, font: font, color: muted });
+                        y -= logoH + 20;
+                    }
+                    drawTableHeader();
+                }
+
+                function drawTableHeader() {
+                    // Group header row (Book Sales / Memberships / Donations)
+                    var x = startX;
+                    var groups = {};
+                    PDF_COLS.forEach(function (c) {
+                        if (c.group) {
+                            if (!groups[c.group]) groups[c.group] = { x: x, w: 0 };
+                            groups[c.group].w += c.w;
+                        }
+                        x += c.w;
+                    });
+                    Object.keys(groups).forEach(function (g) {
+                        drawCenter(g, groups[g].x + groups[g].w / 2, y - 10, 9, bold, green);
+                    });
+                    y -= 16;
+                    // Column header row
+                    x = startX;
+                    PDF_COLS.forEach(function (c) {
+                        if (c.align === 'left') {
+                            page.drawText(c.label, { x: x + 6, y: y - 10, size: 8, font: bold, color: muted });
+                        } else {
+                            drawRight(c.label, x + c.w - 6, y - 10, 8, bold, muted);
+                        }
+                        x += c.w;
+                    });
+                    y -= 14;
+                    page.drawLine({ start: { x: startX, y: y }, end: { x: startX + contentW, y: y }, thickness: 1, color: rgb(0.4, 0.4, 0.4) });
+                    y -= 4;
+                }
+
+                function drawRow(cells, opts) {
+                    opts = opts || {};
+                    var rowFont = opts.bold ? bold : font;
+                    var size = 9;
+                    var x = startX;
+                    PDF_COLS.forEach(function (c) {
+                        var val = cells[c.key];
+                        if (val === undefined || val === null) val = '';
+                        if (c.align === 'left') {
+                            page.drawText(String(val), { x: x + 6, y: y - 11, size: size, font: rowFont, color: ink });
+                        } else {
+                            drawRight(String(val), x + c.w - 6, y - 11, size, rowFont, ink);
+                        }
+                        x += c.w;
+                    });
+                    y -= 16;
+                    page.drawLine({ start: { x: startX, y: y }, end: { x: startX + contentW, y: y }, thickness: 0.5, color: line });
+                }
+
+                newPage(true);
+
+                // Slip rows (paginate if we run out of vertical room)
+                if (slips.length === 0) {
+                    page.drawText('No slips recorded.', { x: startX + 6, y: y - 12, size: 10, font: font, color: muted });
+                    y -= 18;
+                } else {
+                    slips.forEach(function (s, i) {
+                        if (y < margin + 80) newPage(false);
+                        var cells = { idx: String(i + 1), total: money(slipTotal(s)) };
+                        FIELDS.forEach(function (f) { cells[f] = money(s[f]); });
+                        drawRow(cells);
+                    });
+                }
+
+                // Totals row
+                if (y < margin + 70) newPage(false);
+                var totalCells = { idx: 'Total', total: money(totals.grand) };
+                FIELDS.forEach(function (f) { totalCells[f] = money(totals[f]); });
+                y -= 2;
+                drawRow(totalCells, { bold: true });
+
+                // Deposit summary block
+                if (y < margin + 110) newPage(false);
+                y -= 24;
+                page.drawText('Deposit Summary', { x: startX, y: y - 12, size: 13, font: bold, color: ink });
+                y -= 30;
+
+                var summaryRows = [
+                    ['Total Book Sales', money(totals.book)],
+                    ['Total Memberships', money(totals.mem)],
+                    ['Total Donations', money(totals.don)],
+                    ['Total Cash', money(totals.cash)],
+                    ['Total Venmo', money(totals.venmo)],
+                    ['Total PayPal', money(totals.paypal)]
+                ];
+                var labelX = startX, valRight = startX + 220;
+                summaryRows.forEach(function (r) {
+                    page.drawText(r[0], { x: labelX, y: y - 11, size: 11, font: font, color: ink });
+                    drawRight(r[1], valRight, y - 11, 11, bold, ink);
+                    y -= 20;
+                });
+                y -= 4;
+                page.drawLine({ start: { x: labelX, y: y }, end: { x: valRight, y: y }, thickness: 1, color: rgb(0.4, 0.4, 0.4) });
+                y -= 20;
+                page.drawText('Grand Total', { x: labelX, y: y - 11, size: 13, font: bold, color: green });
+                drawRight(money(totals.grand), valRight, y - 11, 13, bold, green);
+
+                return doc.save();
+            }).then(function (bytes) {
+                var fileName = 'deposit-tally_' + monthSelect.value.toLowerCase() + '_' + new Date().toISOString().slice(0, 10) + '.pdf';
+                var blob = new Blob([bytes], { type: 'application/pdf' });
+                var url = URL.createObjectURL(blob);
+                var link = document.createElement('a');
+                link.href = url;
+                link.download = fileName;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+            });
+        }
 
         // ---- init ----
         load();
